@@ -1,0 +1,2 @@
+mysite (outer) = ProjectX
+polls = papers
