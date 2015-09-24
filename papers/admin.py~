@@ -1,0 +1,19 @@
+from django.contrib import admin
+
+from .models import Chairperson
+admin.site.register(Chairperson)
+
+from .models import CommitteeMember
+admin.site.register(CommitteeMember)
+
+from .models import Paper
+admin.site.register(Paper)
+
+from .models import Reviewer
+admin.site.register(Reviewer)
+
+from .models import Review
+admin.site.register(Review)
+
+from .models import Author
+admin.site.register(Author)
