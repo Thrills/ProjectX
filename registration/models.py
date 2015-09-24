@@ -4,23 +4,27 @@ from django.db import models
 from django.utils import timezone
 
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-    def __str__(self):              
-    	return self.question_text
-    def was_published_recently(self):
-        now = timezone.now()
-        return now - datetime.timedelta(days=1) <= self.pub_date <= now
-    was_published_recently.admin_order_field = 'pub_date'
-    was_published_recently.boolean = True
-    was_published_recently.short_description = 'Published recently?'
+class Delegate(models.Model):
+    DELEGATE_DIETARYREQUIREMENTS = (
+	('Vegetarian'),
+	('Vegan'),
+	('Halal'),
+	('Kosher'),
+	('Gluten-free'),
+	('Lactose-free'),
+	('Shellfish-free'),
+	('Diabetic'),
+    )	 
+    delegate_name = models.CharField(max_length=30)
+    delegate_surname = models.CharField(max_length=30)
+    delegate_institution = models.CharField(max_length=50)
+    delegate_country = models.CharField(max_length=50)
+    delegate_dietaryRequirements = models.CharField(max_length=200, choices=DELEGATE_DIETARYREQUIREMENTS)
+    delegate_email = models.EmailField(max_length=50)
+    delegate_ticketNumber = models.IntegerField(max_length=3)
 
-class Choice(models.Model):
-    question = models.ForeignKey(Question)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-    def __str__(self):              
-        return self.choice_text
+
+class Ticket(models.Model):
+    TicketNumber = models.ForeignKey(Delegate)
 
 
