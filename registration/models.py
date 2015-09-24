@@ -1,5 +1,7 @@
+import datetime
 
 from django.db import models
+from django.utils import timezone
 
 
 class Delegate(models.Model):  # The database for delegates who have made a booking
@@ -22,6 +24,11 @@ class Delegate(models.Model):  # The database for delegates who have made a book
     delegate_otherRequirements = models.CharField(max_length=200, blank=True)
     delegate_email = models.EmailField(max_length=50, primary_key=True)
     delegate_ticketNumber = models.CharField(max_length=3)
+    def __str__(self):
+    	return self.delegate_text
+    
 
 class Ticket(models.Model):
     TicketNumber = models.ForeignKey(Delegate)
+    def __str__(self):
+    	return self.ticket_text
