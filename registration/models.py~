@@ -5,6 +5,14 @@ from django.utils import timezone
 
 
 class Delegate(models.Model):
+<<<<<<< HEAD
+    delegate_name = models.CharField(max_length=30)
+    delegate_surname = models.CharField(max_length=30)
+    delegate_institution = models.CharField(max_length=50)
+    delegate_country = models.CharField(max_length=50)
+    delegate_dietaryRequirements = models.CharField(max_length=200)
+    delegate_email = models.EmailField(max_length=50)
+=======
     dietary = (
 	('Vegetarian',''),
 	('Vegan',''),
@@ -22,7 +30,12 @@ class Delegate(models.Model):
     delegate_dietaryRequirements = models.CharField(max_length=20, choices=dietary, blank=True )
     delegate_otherRequirements = models.CharField(max_length=200, blank=True )
     delegate_email = models.EmailField(max_length=50, primary_key=True)
+<<<<<<< HEAD
     delegate_ticketNumber = models.CharField(max_length=3)
+=======
+>>>>>>> 5b4e119d64e8aec233a2544064d1359ab3a19949
+    delegate_ticketNumber = models.IntegerField(max_length=3)
+>>>>>>> 93b6f3ff38938488d517a1e49c5f3d590e2f09d3
 
 
 class Ticket(models.Model):
