@@ -1,2 +1,5 @@
 mysite (outer) = ProjectX
 polls = papers
+
+django tut1**
+Add was published date with import date time 
