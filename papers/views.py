@@ -2,24 +2,19 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 
-from .models import Question
+from .models import Paper
 
 
 def index(request):
-    latest_question_list = Question.objects.order_by('-pub_date')[:5]
-    context = {'latest_question_list': latest_question_list}
-    return render(request, 'polls/index.html', context)
+    paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !
+    context = {'paper_list': paper_list}
+    return render(request, 'papers/index.html', context)
 
 
-def detail(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
-    return render(request, 'polls/detail.html', {'question': question})
+def paper(request, paper_code):
+    question = get_object_or_404(Paper, pk=paper_code)
+    return render(request, 'papers/paper.html', {'paper': paper})
 
 
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
-
-
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
+def review(request, paper_code):
+    return HttpResponse("You're reviewing paper %s." % paper_code)
