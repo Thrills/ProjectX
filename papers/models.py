@@ -1,37 +1,32 @@
 import datetime
 
 from django.db import models
-from django.utils import timezone
+# from django.utils import timezone
 
 # Create your models here.
 class Chairperson(models.Model):
     cp_username = models.CharField(max_length=30)
     cp_password = models.CharField(max_length=30)
-    def __str__(self):
-    	return self.chairperson_text
 
 class CommitteeMember(models.Model):
+    cm_id = models.CharField(max_length=3, primary_key=True)
     cm_name = models.CharField(max_length=30)
-    cm_surname = models.CharField(max_length=30, primary_key=True)
+    cm_surname = models.CharField(max_length=30,)
     cm_institution = models.CharField(max_length=50)
     cm_email = models.EmailField(max_length=50)
     def __str__(self):
-    	return self.committeemember_text
+    	return '%s %s %s' % (self.cm_id, self.cm_name, self.cm_surname)
 
 class Paper(models.Model):
-    paper_authorNames = models.CharField(max_length=100)
     author_id = models.ForeignKey('Author')
-    paper_submissionDate = models.DateTimeField(auto_now=False, auto_now_add=True)
-    paper_submissionUpdate = models.DateTimeField(auto_now=True, auto_now_add=False)
+    paper_submissionDate = models.DateTimeField(auto_now=False)
     paper_abstract = models.CharField(max_length=300)
     paper_language = models.CharField(max_length=20)
     paper_code = models.CharField(max_length=10, primary_key=True)
-    paper_reviewCode = models.CharField(max_length=10)
     paper_avgScore = models.CharField(max_length=2, blank=True, null=True)
     paper_accepted = models.NullBooleanField()
     def __str__(self):
-    	return self.paper_text
-    
+    	return '%s %s' % (self.paper_code, self.paper_accepted)
 
 class Reviewer(models.Model):
     reviewer_name = models.CharField(max_length=30)
@@ -39,18 +34,16 @@ class Reviewer(models.Model):
     reviewer_id = models.CharField(max_length=10, primary_key=True)
     reviewer_institution = models.CharField(max_length=50)
     reviewer_email = models.EmailField(max_length=50)
-    reviewer_paperCode = models.CharField(max_length=10)
-    reviewer_reviewCode = models.CharField(max_length=10, blank=True, null=True)
+    paper_code = models.ForeignKey('Paper', null=True)
     def __str__(self):
-    	return self.reviewer_text
+    	return '%s %s %s' % (self.reviewer_id, self.reviewer_name, self.reviewer_surname)
 
 class Review(models.Model):
     review_score = models.CharField(max_length=2)
-    review_reviewCode = models.CharField(max_length=10, primary_key=True)
     reviewer_id = models.ForeignKey('Reviewer')
-    review_paperCode = models.CharField(max_length=10)
+    paper_code = models.ForeignKey('Paper')
     def __str__(self):
-    	return self.review_text
+    	return '%s %s %s' % (self.reviewer_id, self.review_score, self.paper_code)
     
 class Author(models.Model):
     author_name = models.CharField(max_length=30)
@@ -60,4 +53,4 @@ class Author(models.Model):
     author_country = models.CharField(max_length=50, blank=True)
     author_email = models.EmailField(max_length=50)
     def __str__(self):
-    	return self.author_text
+    	return '%s %s %s' % (self.author_id, self.author_name, self.author_surname)

@@ -15,16 +15,16 @@ class Migration(migrations.Migration):
             fields=[
                 ('author_name', models.CharField(max_length=30)),
                 ('author_surname', models.CharField(max_length=30)),
-                ('author_id', models.CharField(serialize=False, primary_key=True, max_length=10)),
+                ('author_id', models.CharField(serialize=False, max_length=10, primary_key=True)),
                 ('author_institution', models.CharField(max_length=50)),
-                ('author_country', models.CharField(blank=True, max_length=50)),
+                ('author_country', models.CharField(max_length=50, blank=True)),
                 ('author_email', models.EmailField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
             name='Chairperson',
             fields=[
-                ('id', models.AutoField(auto_created=True, serialize=False, verbose_name='ID', primary_key=True)),
+                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
                 ('cp_username', models.CharField(max_length=30)),
                 ('cp_password', models.CharField(max_length=30)),
             ],
@@ -32,8 +32,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CommitteeMember',
             fields=[
+                ('cm_id', models.CharField(serialize=False, max_length=3, primary_key=True)),
                 ('cm_name', models.CharField(max_length=30)),
-                ('cm_surname', models.CharField(serialize=False, primary_key=True, max_length=30)),
+                ('cm_surname', models.CharField(max_length=30)),
                 ('cm_institution', models.CharField(max_length=50)),
                 ('cm_email', models.EmailField(max_length=50)),
             ],
@@ -41,14 +42,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Paper',
             fields=[
-                ('paper_authorNames', models.CharField(max_length=100)),
-                ('paper_submissionDate', models.DateTimeField(auto_now_add=True)),
-                ('paper_submissionUpdate', models.DateTimeField(auto_now=True)),
+                ('paper_submissionDate', models.DateTimeField()),
                 ('paper_abstract', models.CharField(max_length=300)),
                 ('paper_language', models.CharField(max_length=20)),
-                ('paper_code', models.CharField(serialize=False, primary_key=True, max_length=10)),
-                ('paper_reviewCode', models.CharField(max_length=10)),
-                ('paper_avgScore', models.CharField(null=True, blank=True, max_length=2)),
+                ('paper_code', models.CharField(serialize=False, max_length=10, primary_key=True)),
+                ('paper_avgScore', models.CharField(null=True, max_length=2, blank=True)),
                 ('paper_accepted', models.NullBooleanField()),
                 ('author_id', models.ForeignKey(to='papers.Author')),
             ],
@@ -56,9 +54,9 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Review',
             fields=[
+                ('id', models.AutoField(auto_created=True, serialize=False, primary_key=True, verbose_name='ID')),
                 ('review_score', models.CharField(max_length=2)),
-                ('review_reviewCode', models.CharField(serialize=False, primary_key=True, max_length=10)),
-                ('review_paperCode', models.CharField(max_length=10)),
+                ('paper_code', models.ForeignKey(to='papers.Paper')),
             ],
         ),
         migrations.CreateModel(
@@ -66,11 +64,10 @@ class Migration(migrations.Migration):
             fields=[
                 ('reviewer_name', models.CharField(max_length=30)),
                 ('reviewer_surname', models.CharField(max_length=30)),
-                ('reviewer_id', models.CharField(serialize=False, primary_key=True, max_length=10)),
+                ('reviewer_id', models.CharField(serialize=False, max_length=10, primary_key=True)),
                 ('reviewer_institution', models.CharField(max_length=50)),
                 ('reviewer_email', models.EmailField(max_length=50)),
-                ('reviewer_paperCode', models.CharField(max_length=10)),
-                ('reviewer_reviewCode', models.CharField(null=True, blank=True, max_length=10)),
+                ('paper_code', models.ForeignKey(to='papers.Paper')),
             ],
         ),
         migrations.AddField(

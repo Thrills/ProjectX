@@ -1,27 +1,20 @@
 from django.contrib import admin
 
-from .models import Chairperson
-admin.site.register(Chairperson)
-
-from .models import CommitteeMember
+from .models import CommitteeMember, Paper, Reviewer, Review, Author
 
 class CommitteeMemberAdmin(admin.ModelAdmin):
     fieldsets = [                                                      # Creates fieldsets for the data about CM members
-	('Personal Information', {'fields': ['cm_name', 'cm_surname', 'cm_institution', 'cm_email']}),
+	('Personal Information', {'fields': ['cm_id', 'cm_name', 'cm_surname', 'cm_institution', 'cm_email']}),
 ]
 
 admin.site.register(CommitteeMember, CommitteeMemberAdmin)
 
-from .models import Paper
-
 class PaperAdmin(admin.ModelAdmin):
     fieldsets = [
-	('Paper Details', {'fields': ['paper_code', 'paper_submissionDate', 'paper_submissionUpdate', 'paper_avgScore', 'paper_accepted']}) # Different data the Admin will be able to view
+	('Paper Details', {'fields': ['paper_code', 'paper_submissionDate', 'paper_avgScore', 'paper_accepted']}) # Different data the Admin will be able to view
 ]
 
 admin.site.register(Paper, PaperAdmin)
-
-from .models import Reviewer
 
 class ReviewerAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -30,16 +23,12 @@ class ReviewerAdmin(admin.ModelAdmin):
 
 admin.site.register(Reviewer, ReviewerAdmin)
 
-from .models import Review
-
 class ReviewAdmin(admin.ModelAdmin):
     fieldsets = [
-	('Review Details', {'fields': ['review_reviewCode', 'review_score', 'review_paperCode']})
+	('Review Details', {'fields': ['reviewer_id', 'review_score', 'paper_code']})
 ]
 
 admin.site.register(Review, ReviewAdmin)
-
-from .models import Author
 
 class AuthorAdmin(admin.ModelAdmin):
     fieldsets = [
