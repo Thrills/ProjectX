@@ -1,25 +1,39 @@
 from django.contrib import admin
 
-from .models import Chairperson
-admin.site.register(Chairperson)
+from .models import CommitteeMember, Paper, Reviewer, Review, Author
 
-from .models import CommitteeMember
-#class CommitteeMemberAdmin(admin.ModelAdmin):
-    #field = ['cm_name', 'cm_surname', 'cm_institutions', 'cm_email']
-admin.site.register(CommitteeMember, #CommitteeMemberAdmin)
+class CommitteeMemberAdmin(admin.ModelAdmin):
+    fieldsets = [                                                      # Creates fieldsets for the data about CM members
+	('Personal Information', {'fields': ['cm_id', 'cm_name', 'cm_surname', 'cm_institution', 'cm_email']}),
+]
 
-from .models import Paper
-#class PaperAdmin(admin.ModelAdmin):
-    #fields = ['paper_code', 'paper_submissionDate', 'paper_submissionUpdate ', 'paper_avgScore', 'paper_accepted']
-admin.site.register(Paper, #PaperAdmin)
+admin.site.register(CommitteeMember, CommitteeMemberAdmin)
 
-from .models import Reviewer
-#class ReviewerAdmin(admin.ModelAdmin):
-    #field = ['reviewer_id', 'reviewer_name', 'reviewer_surname', 'reviewer_institution', 'reviewer_email']
-admin.site.register(Reviewer, #ReviewerAdmin)
+class PaperAdmin(admin.ModelAdmin):
+    fieldsets = [
+	('Paper Details', {'fields': ['paper_code', 'paper_submissionDate', 'paper_avgScore', 'paper_accepted']}) # Different data the Admin will be able to view
+]
 
-from .models import Review
-admin.site.register(Review)
+admin.site.register(Paper, PaperAdmin)
 
-from .models import Author
-admin.site.register(Author)
+class ReviewerAdmin(admin.ModelAdmin):
+    fieldsets = [
+	('Personal Information', {'fields': ['reviewer_id', 'reviewer_name', 'reviewer_surname', 'reviewer_institution', 'reviewer_email']})
+]
+
+admin.site.register(Reviewer, ReviewerAdmin)
+
+class ReviewAdmin(admin.ModelAdmin):
+    fieldsets = [
+	('Review Details', {'fields': ['reviewer_id', 'review_score', 'paper_code']})
+]
+
+admin.site.register(Review, ReviewAdmin)
+
+class AuthorAdmin(admin.ModelAdmin):
+    fieldsets = [
+	('Personal Information',
+     {'fields': ['author_id', 'author_name', 'author_surname', 'author_institution', 'author_email']})
+]
+
+admin.site.register(Author, AuthorAdmin)
