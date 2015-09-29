@@ -1,21 +1,18 @@
-import datetime
-
 from django.db import models
-from django.utils import timezone
 
 
 class Delegate(models.Model):  # The database for delegates who have made a booking
 
-    dietary = (
-	('Vegetarian','Vegetarian'),
-	('Vegan','Vegan'),
-	('Halal','Halal'),
-	('Kosher','Kosher'),
-	('Gluten-free','Gluten-free'),
-	('Lactose-free','Lactose-free'),
-	('Shellfish-free','Shellfish-free'),
-	('Diabetic','Diabetic'),
-    )	 
+    dietary = (  # Provides delegate with a specific choice
+                 ('Vegetarian', 'Vegetarian'),
+                 ('Vegan', 'Vegan'),
+                 ('Halal', 'Halal'),
+                 ('Kosher', 'Kosher'),
+                 ('Gluten-free', 'Gluten-free'),
+                 ('Lactose-free', 'Lactose-free'),
+                 ('Shellfish-free', 'Shellfish-free'),
+                 ('Diabetic', 'Diabetic'),
+                 )
     delegate_name = models.CharField(max_length=30)
     delegate_surname = models.CharField(max_length=30)
     delegate_institution = models.CharField(max_length=50, blank=True)
@@ -24,11 +21,13 @@ class Delegate(models.Model):  # The database for delegates who have made a book
     delegate_otherRequirements = models.CharField(max_length=200, blank=True)
     delegate_email = models.EmailField(max_length=50, primary_key=True)
     delegate_ticketNumber = models.CharField(max_length=3)
+
     def __str__(self):
-    	return self.delegate_text
-    
+        return self.delegate_text
+
 
 class Ticket(models.Model):
     TicketNumber = models.ForeignKey(Delegate)
+
     def __str__(self):
-    	return self.ticket_text
+        return self.ticket_text
