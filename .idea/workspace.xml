@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="04334587-39e4-482d-814f-4cf84f21765f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/papers/templates/papers/detail.html" afterPath="$PROJECT_DIR$/papers/templates/papers/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/papers/templates/papers/index.html" afterPath="$PROJECT_DIR$/papers/templates/papers/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectX/urls.py" afterPath="$PROJECT_DIR$/ProjectX/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/papers/urls.py" afterPath="$PROJECT_DIR$/papers/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/papers/views.py" afterPath="$PROJECT_DIR$/papers/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ProjectX.iws" />
@@ -519,7 +514,13 @@
       <option name="project" value="LOCAL" />
       <updated>1443435641742</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Edited files from &quot;Tutorial 3&quot; to be project specific.">
+      <created>1443441467766</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1443441467766</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -584,7 +585,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added blank" />
     <MESSAGE value="Added default django code of Tutorial 3 to &quot;papers&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added default django code of Tutorial 3 to &quot;papers&quot;" />
+    <MESSAGE value="Edited files from &quot;Tutorial 3&quot; to be project specific." />
+    <option name="LAST_COMMIT_MESSAGE" value="Edited files from &quot;Tutorial 3&quot; to be project specific." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
