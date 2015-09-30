@@ -8,15 +8,17 @@ from .models import Delegate
 
 def booking(request):
     title = 'Make a Booking Now'
-    form = BookingForm(request.POST or None)
+    form = BookingForm(request.POST)
     context = {
         "title": title,
         "form": form
     }
     if form.is_valid():
-        # form.save() ? unsure
         # #print request.POST['email'] unsure !!
-        instance = form.save(commit=False)
+        form.save()
+    
+
+"""    instance = form.save(commit=False)
 
     delegate_name = form.cleaned_data.get("delegate_name")
     if not delegate_name:
@@ -30,16 +32,16 @@ def booking(request):
     }
 
     if request.user.is_authenticated() and request.user.is_staff:
-        """ print(Delegate.objects.all())
+         print(Delegate.objects.all())
     i = 1
     for instance in Delegate.objects.all():
     print(i)
     print(instance.delegate_name)
-    i += 1 """
+    i += 1 
 
         queryset = Delegate.objects.all().order_by('-timestamp')  # .filter(delegate_name__iexact="Marco")
     # print(Delegate.objects.all().order_by('-timestamp').filter(delegate_name__iexact="Marco").count())
     context = {
         "queryset": queryset
     }
-    return render(request, "booking/booking.html", context)
+    return render(request, "booking/booking.html", context) """
