@@ -15,19 +15,21 @@ class Delegate(models.Model):  # The database for delegates who have made a book
                  )
     delegate_name = models.CharField(max_length=30)
     delegate_surname = models.CharField(max_length=30)
-    delegate_institution = models.CharField(max_length=50, blank=True)
-    delegate_country = models.CharField(max_length=50, blank=True)
-    delegate_dietaryRequirements = models.CharField(max_length=20, choices=dietary, blank=True)
-    delegate_otherRequirements = models.CharField(max_length=200, blank=True)
-    delegate_email = models.EmailField(max_length=50, primary_key=True)
-    delegate_ticketNumber = models.CharField(max_length=3)
+    institution = models.CharField(max_length=50, blank=True)
+    country = models.CharField(max_length=50, blank=True)
+    dietary_requirements = models.CharField(max_length=20, choices=dietary, blank=True)
+    other_requirements = models.CharField(max_length=200, blank=True)
+    email = models.EmailField(max_length=50, primary_key=True)
+    ticket_number = models.CharField(max_length=3)
 
     def __str__(self):
-        return self.delegate_text
+        return '%s %s %s %s %s %s %s %s' % (self.delegate_name, self.delegate_surname, self.institution, self.country,
+                                            self.dietary_requirements, self.other_requirements, self.email,
+                                            self.ticket_number)
 
 
 class Ticket(models.Model):
-    TicketNumber = models.ForeignKey(Delegate)
+    ticket_number = models.ForeignKey(Delegate)
 
     def __str__(self):
-        return self.ticket_text
+        return self.ticket_number
