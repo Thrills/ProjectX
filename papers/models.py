@@ -4,6 +4,7 @@ from django.db import models
 # from django.utils import timezone
 
 # Create your models here.
+
 class Chairperson(models.Model):
     cp_username = models.CharField(max_length=30)
     cp_password = models.CharField(max_length=30)

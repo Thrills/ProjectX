@@ -9,13 +9,10 @@ from .models import Delegate
 def booking(request):
     title = 'Make a Booking Now'
     form = BookingForm(request.POST)
-    context = {
-        "title": title,
-        "form": form
-    }
     if form.is_valid():
         # #print request.POST['email'] unsure !!
         form.save()
+        form.process()
     
 
 """    instance = form.save(commit=False)
