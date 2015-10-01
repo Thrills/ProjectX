@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.core.mail import send_mail
 from django.shortcuts import render
+from django.http import HttpResponse
 
 from .forms import BookingForm
 from .models import Delegate
@@ -10,9 +11,13 @@ def booking(request):
     title = 'Make a Booking Now'
     form = BookingForm(request.POST)
     if form.is_valid():
-        # #print request.POST['email'] unsure !!
-        form.save()
-        form.process()
+
+        return HttpResponse('/thanks/')
+
+    else:
+        form = BookingForm()
+
+    return render(request, 'booking/booking.html', {'form': form})
     
 
 """    instance = form.save(commit=False)
