@@ -1,25 +1,26 @@
-{% load i18n %}
 {% load crispy_forms_tags %}
 
 
 {% block content %}
+
+
+
+
+
 <div class='row'>
 <div class='col-sm-6 col-sm-offset-3'>
-<h1>Register!</h1>
-<form method="post" action=".">
-  {% csrf_token %}
-  {{ form|crispy }}
 
-  <input class='btn btn-block btn-primary' type="submit" value="{% trans 'Book' %}" />
+<h1>Register</h1>
+{% if title %}
+<h1 class='{% if title_align_center %}text-align-center{% endif %}'>{{ title }}</h1>
+{% endif %}
+
+<form method='POST' action=''>{% csrf_token %}
+{{ form|crispy }}
+
+<input class='btn btn-default' type='submit' value='Submit' />
+
 </form>
 </div>
 </div>
-
-<hr/>
-<div class='row'>
-<div class='col-sm-6 col-sm-offset-3 text-align-center'>
-</div>
-</div>
-
-
 {% endblock %}
