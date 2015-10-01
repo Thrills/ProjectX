@@ -2,8 +2,6 @@
 import os
 import sys
 
-sys.path.append('/home/rga.stb.sun.ac.za/17640776/djangoinstall/lib/python3.3/site-packages/django/contrib/admin/templates')
-
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "ProjectX.settings")
 
