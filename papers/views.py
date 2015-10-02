@@ -4,6 +4,8 @@ from django.http import HttpResponse
 
 from .models import Paper
 
+def home(request):
+	return render(request, "home.html", {})
 
 def index(request):
     paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !
