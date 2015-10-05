@@ -3,37 +3,36 @@ from django.contrib import admin
 from .models import CommitteeMember, Paper, Reviewer, Review, Author
 
 class CommitteeMemberAdmin(admin.ModelAdmin):
-    fieldsets = [                                                      # Creates fieldsets for the data about CM members
-	('Personal Information', {'fields': ['cm_id', 'cm_name', 'cm_surname', 'cm_institution', 'cm_email']}),
-]
+    list_display = ["__str__", "cm_id", "cm_institution", "cm_email"]                                    # Creates fieldsets for the data about CM members
+    class Meta:
+        model = CommitteeMember
 
 admin.site.register(CommitteeMember, CommitteeMemberAdmin)
 
 class PaperAdmin(admin.ModelAdmin):
-    fieldsets = [
-	('Paper Details', {'fields': ['paper_code', 'paper_submissionDate', 'paper_avgScore', 'paper_accepted']}) # Different data the Admin will be able to view
-]
+    list_display = ["__str__", "paper_submissionDate", "paper_avgScore", "paper_accepted"]         # Different data the Admin will be able to view
+    class Meta:
+        model = Paper
 
 admin.site.register(Paper, PaperAdmin)
 
 class ReviewerAdmin(admin.ModelAdmin):
-    fieldsets = [
-	('Personal Information', {'fields': ['reviewer_id', 'reviewer_name', 'reviewer_surname', 'reviewer_institution', 'reviewer_email']})
-]
+    list_display = ["__str__", "reviewer_id", "reviewer_institution", "reviewer_email"]
+    class Meta:
+        model = Reviewer
 
 admin.site.register(Reviewer, ReviewerAdmin)
 
 class ReviewAdmin(admin.ModelAdmin):
-    fieldsets = [
-	('Review Details', {'fields': ['reviewer_id', 'review_score', 'paper_code']})
-]
+    list_display = ["__str__", "reviewer_id", "review_score"]
+    class Meta:
+        model = Review
 
 admin.site.register(Review, ReviewAdmin)
 
 class AuthorAdmin(admin.ModelAdmin):
-    fieldsets = [
-	('Personal Information',
-     {'fields': ['author_id', 'author_name', 'author_surname', 'author_institution', 'author_email']})
-]
+    list_display = ["__str__", "author_id", "author_institution", "author_email"]
+    class Meta:
+        models = Author
 
 admin.site.register(Author, AuthorAdmin)
