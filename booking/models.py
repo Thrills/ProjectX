@@ -16,6 +16,7 @@ class Delegate(models.Model):  # The database for delegates who have made a book
     delegate_name = models.CharField(max_length=30)
     delegate_surname = models.CharField(max_length=30)
     institution = models.CharField(max_length=50, blank=True)
+    #blank set to True allows the database to have no value
     country = models.CharField(max_length=50, blank=True)
     dietary_requirements = models.CharField(max_length=20, choices=dietary, blank=True)
     other_requirements = models.CharField(max_length=200, blank=True)
