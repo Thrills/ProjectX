@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'papers', 
     'booking',
     # Installed apps
-    'crispy_forms',
+    'crispy_forms', #http://django-crispy-forms.readthedocs.org/
     'registration',
 )
 

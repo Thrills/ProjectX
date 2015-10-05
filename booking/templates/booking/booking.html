@@ -1,5 +1,6 @@
 {% load crispy_forms_tags %}
-
+<!-- This line calls the Crispy Forms package, which handles forms and their structure. -->
+<!-- http://django-crispy-forms.readthedocs.org/ -->
 
 {% block content %}
 
@@ -8,17 +9,21 @@
 
 
 <div class='row'>
-<div class='col-sm-6 col-sm-offset-3'>
+<div class='col-sm-6 col-sm-offset-3'> 
+<!-- classes are named after bootstrap defaults in order to trigger responsiveness -->
 
-<h1>Register</h1>
+<h1>Make a Booking</h1>
 {% if title %}
 <h1 class='{% if title_align_center %}text-align-center{% endif %}'>{{ title }}</h1>
 {% endif %}
 
 <form method='POST' action=''>{% csrf_token %}
-{{ form|crispy }}
+<!-- csrf token ensures no cross site forgery -->
 
-<input class='btn btn-default' type='submit' value='Submit' />
+{{ form|crispy }}
+<!-- The form is displayed through the package Crispy forms.  -->
+
+<input class='btn btn-default' type='submit' value='Book' />
 
 </form>
 </div>
