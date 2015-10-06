@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'papers', 
     'booking',
     # Installed apps
+    'django.contrib.sites',
     'crispy_forms', #http://django-crispy-forms.readthedocs.org/
     'registration',
 )
@@ -108,4 +109,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
+# CRISPY FORMS SETTINGS
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+# DJANGO REGISTRATION REDUX SETTINGS
+ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'

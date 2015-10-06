@@ -12,7 +12,8 @@ class BookingForm(forms.ModelForm):
     def clean_email(self):
         email = self.cleaned_data.get('email')
         email_base, provider = email.split('@')
-        domain, extension = provider.split('.')
+        domain = provider.split('.')
+        extension = provider.split('.')
         return email
 
     def clean_delegate_name(self):
