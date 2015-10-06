@@ -5,7 +5,7 @@ from .forms import CommitteeMemberForm, PaperForm, ReviewerForm, ReviewForm, Aut
 from .models import CommitteeMember, Paper, Reviewer, Review, Author
 
 class CommitteeMemberAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "cm_id", "cm_institution", "cm_email"]
+    list_display = ["__str__", "cm_id", "institution", "email"]
     form = CommitteeMemberForm                                    # Creates fieldsets for the data about CM members
     #class Meta:
     #    model = CommitteeMember
@@ -21,7 +21,7 @@ class PaperAdmin(admin.ModelAdmin):
 admin.site.register(Paper, PaperAdmin)
 
 class ReviewerAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "reviewer_id", "reviewer_institution", "reviewer_email"]
+    list_display = ["__str__", "reviewer_id", "institution", "email"]
     form = ReviewerForm
     #class Meta:
     #    model = Reviewer
@@ -37,7 +37,7 @@ class ReviewAdmin(admin.ModelAdmin):
 admin.site.register(Review, ReviewAdmin)
 
 class AuthorAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "author_id", "author_institution", "author_email"]
+    list_display = ["__str__", "author_id", "institution", "email"]
     form = AuthorForm
     #class Meta:
     #    models = Author

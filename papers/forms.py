@@ -5,17 +5,17 @@ from .models import CommitteeMember, Paper, Reviewer, Review, Author
 class CommitteeMemberForm(forms.ModelForm):
 	class Meta:
 		model = CommitteeMember
-		fields = ['cm_id', 'cm_name', 'cm_surname', 'cm_institution', 'cm_email']
+		fields = ['cm_id', 'cm_name', 'cm_surname', 'institution', 'email']
 
 class PaperForm(forms.ModelForm):
 	class Meta:
 		model = Paper
-		fields = ['paper_abstract', 'paper_language', 'paper_avgScore', 'paper_accepted']
+		fields = ['abstract', 'language', 'paper_avgScore', 'paper_accepted']
 
 class ReviewerForm(forms.ModelForm):
 	class Meta:
 		model = Reviewer
-		fields = ['reviewer_name', 'reviewer_surname', 'reviewer_institution', 'reviewer_email']
+		fields = ['reviewer_name', 'reviewer_surname', 'institution', 'email']
 
 class ReviewForm(forms.ModelForm):
 	class Meta:
@@ -25,4 +25,4 @@ class ReviewForm(forms.ModelForm):
 class AuthorForm(forms.ModelForm):
 	class Meta:
 		model = Author
-		fields = ['author_name', 'author_surname', 'author_institution', 'author_country', 'author_email']
+		fields = ['author_name', 'author_surname', 'institution', 'country', 'email']

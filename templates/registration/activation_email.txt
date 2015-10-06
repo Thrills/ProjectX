@@ -1,0 +1,13 @@
+{% load i18n %}
+{% trans "Activate account at" %} {{ site.name }}:
+
+Good day 
+
+Click the link below to activate your account.
+
+http://{{ site.domain }}{% url 'registration_activate' activation_key %}
+
+
+{% blocktrans %}The above link is valid for {{ expiration_days }} days.{% endblocktrans %}
+
+Thanks, ISISM Conference
