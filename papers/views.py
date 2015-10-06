@@ -2,9 +2,9 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 
-from .models import CommitteeMember, Paper, Reviewer, Review, Author
+from .models import RegisteredUser, Paper, Review
 
-from .forms import CommitteeMemberForm, PaperForm, ReviewerForm, ReviewForm, AuthorForm
+from .forms import RegisteredUserForm, PaperForm, ReviewForm
 
 def home(request):
 	title = '' # no nice welcome msg for anon users
@@ -17,36 +17,22 @@ def home(request):
 	}
 	return render(request, "home.html", context)
 
-def cm_reg(request):
-	form = CommitteeMemberForm(request.POST or None)
+def registration(request):
+	form = RegisteredUserForm(request.POST or None)
+	context = {
+		"title": title,
+		"form": form
+	}
 
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
-		# print instance.cm_id
-		# print instance.cm_name
-		# print instance.cm_surnam
-		# print instance.cm_institution
-		# print instance.cm_email
-
-	context = {
-		"form": form
+		#print instance.id
+		context = {
+		"title": "Thank You"
 	}
-	return render(request, "cm_reg.html", context)
 
-def reviewer_reg(request):
-	form = ReviewerForm
-	context = {
-		"form": form,
-	}
-	return render(request, "reviewer_reg.html", context)
-
-def author_reg(request):
-	form = AuthorForm
-	context = {
-		"form": form,
-	}
-	return render(request, "author_reg.html", context)
+	return render(request, "registration.html", context)
 
 def index(request):
     paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !

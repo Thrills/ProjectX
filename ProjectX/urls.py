@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+# from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', 'papers.views.home', name='home'),
-    url(r'^cm_reg', 'papers.views.cm_reg', name='cm_reg'),
-    url(r'^reviewer_reg', 'papers.views.reviewer_reg', name='reviewer_reg'),
-    url(r'^author_reg', 'papers.views.author_reg', name='author_reg'),
+    url(r'^registration', 'papers.views.registration', name='registration'),
+    # url(r'^cm_reg', 'papers.views.cm_reg', name='cm_reg'),
+    # url(r'^reviewer_reg', 'papers.views.reviewer_reg', name='reviewer_reg'),
+    # url(r'^author_reg', 'papers.views.author_reg', name='author_reg'),
     url(r'^booking/', include('booking.urls', namespace="booking")),
     url(r'^papers/', include('papers.urls', namespace="papers")),
     url(r'^admin/', include(admin.site.urls)),

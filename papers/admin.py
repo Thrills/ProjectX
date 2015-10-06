@@ -1,16 +1,16 @@
 from django.contrib import admin
 
-from .forms import CommitteeMemberForm, PaperForm, ReviewerForm, ReviewForm, AuthorForm
+from .forms import RegisteredUserForm, PaperForm, ReviewForm
 
-from .models import CommitteeMember, Paper, Reviewer, Review, Author
+from .models import RegisteredUser, Paper, Review
 
-class CommitteeMemberAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "cm_id", "institution", "email"]
-    form = CommitteeMemberForm                                    # Creates fieldsets for the data about CM members
+class RegisteredUserAdmin(admin.ModelAdmin):
+    list_display = ["__str__", "institution", "email"]
+    form = RegisteredUserForm                                    # Creates fieldsets for the data about  users
     #class Meta:
     #    model = CommitteeMember
 
-admin.site.register(CommitteeMember, CommitteeMemberAdmin)
+admin.site.register(RegisteredUser, RegisteredUserAdmin)
 
 class PaperAdmin(admin.ModelAdmin):
     list_display = ["__str__", "paper_submissionDate", "paper_avgScore", "paper_accepted"]         # Different data the Admin will be able to view
@@ -20,26 +20,12 @@ class PaperAdmin(admin.ModelAdmin):
 
 admin.site.register(Paper, PaperAdmin)
 
-class ReviewerAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "reviewer_id", "institution", "email"]
-    form = ReviewerForm
-    #class Meta:
-    #    model = Reviewer
-
-admin.site.register(Reviewer, ReviewerAdmin)
-
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "reviewer_id", "review_score"]
+    list_display = ["__str__", "id", "review_score"]
     form = ReviewForm
     #class Meta:
     #    model = Review
 
 admin.site.register(Review, ReviewAdmin)
 
-class AuthorAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "author_id", "institution", "email"]
-    form = AuthorForm
-    #class Meta:
-    #    models = Author
 
-admin.site.register(Author, AuthorAdmin)
