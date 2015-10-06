@@ -1,5 +1,5 @@
 from django import forms
-# a django module that creates forms
+# our forms for booking
 from .models import Delegate
 
 
@@ -14,6 +14,7 @@ class BookingForm(forms.ModelForm):
         email_base, provider = email.split('@')
         domain = provider.split('.')
         extension = provider.split('.')
+        # This allows for both domain.extension
         return email
 
     def clean_delegate_name(self):

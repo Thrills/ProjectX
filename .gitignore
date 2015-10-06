@@ -8,3 +8,4 @@ db.sqlite3
 papers/__pycache__
 booking/__pycache__
 ProjectX/__pycache__
+db.sqlite3

@@ -1,5 +1,77 @@
-<h1>{{ title }}</h1>
+{% extends "main.html" %}
+{% load crispy_forms_tags %}
+{% load staticfiles %}
 
-{{request.user}}
 
-<form method='' action=''>
+{% block head_title %}Welcome | {{ block.super }}{% endblock %}
+
+{% block jumbotron %}
+ {% if not request.user.is_authenticated %}
+
+<div class="jumbotron">
+ <div class="container">
+	<div class="row">
+		<div class='col-sm-6'>
+		<h1>Try Django 1.8</h1>
+		<p>The MVP Landing project is designed to get your project started. The goal is to help you launch as soon as possible with the least amount of investment using time or money. Join Us today.</p>
+		<p>
+		<a class="btn btn-lg btn-primary" href="" role="button">Join Us &raquo;</a>
+		</p>
+		</div>
+		<div class='col-sm-6' >
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/2uLYO1LUf6Q" frameborder="0" allowfullscreen></iframe>
+
+ 		</div>
+		</div>
+	</div>
+ </div>
+ {% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+
+  <div class="col-sm-3 pull-right">
+  	
+			<p class='lead text-align-center'>{{ title }}</p>
+
+			<form method='POST' action=''>{% csrf_token %}
+			{{ form|crispy }}
+
+			<input class='btn btn-primary' type='submit' value='Sign Up' />
+
+			</form>
+	</div>
+
+	<div class='col-sm-3'>
+<p class='lead text-align-center'>Django &amp; Bootstrap</p>
+	
+</div>
+
+<div class='col-sm-3'>
+<p class='lead text-align-center'>Created for Starters 
+<br/>
+<span class='fa-stack fa-lg fa-5x'>
+<i class='fa fa-comment-o fa-stack-2x'></i>
+<i style='color:yellow;' class="fa fa-bolt fa-stack-1x"></i>
+
+</span>
+</p>
+
+</div>
+
+<div class='col-sm-3'>
+<p class='lead text-align-center'>Always Open Source <br/><br/>
+
+<span class="fa-stack fa-lg fa-5x">
+<i class="fa fa-circle-o-notch fa-stack-2x"></i>
+  <!-- <i class="fa fa-square-o fa-stack-2x"></i> -->
+  <i class="fa fa-github fa-stack-1x"></i>
+</span>
+</p>
+
+</div>
+
+</div>
+
+{% endblock %}
