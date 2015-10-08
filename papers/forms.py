@@ -10,10 +10,13 @@ class RegisteredUserForm(forms.ModelForm):
 class PaperForm(forms.ModelForm):
 	class Meta:
 		model = Paper
-		fields = ['abstract', 'language', 'paper_avgScore', 'paper_accepted']
+		fields = ['title', 'abstract', 'language','paper_file'] # 'paper_avgScore', 'paper_accepted']
+		# paper_file = forms.FileField(
+  #       	label='Select a file'
+  #   	 )
 
 class ReviewForm(forms.ModelForm):
 	class Meta:
 		model = Review
-		fields = ['review_score', 'review_score']
+		fields = ['review_score', 'comments']
 

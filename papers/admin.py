@@ -5,10 +5,11 @@ from .forms import RegisteredUserForm, PaperForm, ReviewForm
 from .models import RegisteredUser, Paper, Review
 
 class RegisteredUserAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "institution", "email"]
+    list_display = ["__str__", "name", "surname", "role", "institution", "email"]
     form = RegisteredUserForm                                    # Creates fieldsets for the data about  users
-    #class Meta:
-    #    model = CommitteeMember
+    class Meta:
+        model = RegisteredUser
+        ordering = ('pk')
 
 admin.site.register(RegisteredUser, RegisteredUserAdmin)
 
