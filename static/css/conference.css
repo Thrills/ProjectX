@@ -1,0 +1,7 @@
+.text-align-center {
+	text-align: center;
+}
+
+.fa-facebook-f:before, .fa-facebook:before {
+    color: #3b5998;
+}
