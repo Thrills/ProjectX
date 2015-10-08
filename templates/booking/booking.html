@@ -3,10 +3,8 @@
 <!-- This line calls the Crispy Forms package, which handles forms and their structure. -->
 <!-- http://django-crispy-forms.readthedocs.org/ -->
 
+{% block head_title %}Booking | {{ block.super }}{% endblock %}
 {% block content %}
-
-
-
 
 
 <div class='row'>
@@ -25,7 +23,6 @@
 <!-- The form is displayed through the package Crispy forms.  -->
 
 <input class='btn btn-default' type='submit' value='Book' />
-
 </form>
 </div>
 </div>
