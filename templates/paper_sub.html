@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{% load crispy_forms_tags %}
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Paper Submission</title>	
+	</head>
+
+	<body>
+		<!-- List of uploaded documents -->
+		{% if paper_list %}
+			<ul>
+			{% for paper in paper_list %}
+				<li><a href="{{ paper.paper_file.url }}">{{ paper.paper_file.name }}</a></li>
+			{% endfor %}
+			</ul>
+		{% else %}
+			<p>No papers.</p>
+		{% endif %}
+
+		<!-- Upload form. Note enctype attribute! -->
+		<form action="{% url "paper_sub" %}" method="post" enctype="multipart/form-data"> 
+			<!-- Enctpye encodes the data from the form -->
+			{% csrf_token %}
+			{{ form|crispy }}
+			<p>{{ form.non_field_errors }}</p>
+			<p>{{ form.paper.label_tag }} {{ form.paper.help_text }}</p>
+			<p>
+				{{ form.paper.errors }}
+
+			</p>
+			<p><input type="submit" value="Upload" /></p>
+		</form>
+		
+	</body>
+
+ 
