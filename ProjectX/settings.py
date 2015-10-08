@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     # Installed apps
     'django.contrib.sites',
     'crispy_forms', #http://django-crispy-forms.readthedocs.org/
-    'registration',
+    'registration', #http://django-registration-redux.readthedocs.org/
 )
 
 MIDDLEWARE_CLASSES = (
@@ -110,6 +110,12 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# Directs Django to our static folder which is in the base dir.
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
+
 
 # CRISPY FORMS SETTINGS
 CRISPY_TEMPLATE_PACK = 'bootstrap3'

@@ -6,8 +6,6 @@
 {% block head_title %}Welcome | {{ block.super }}{% endblock %}
 
 {% block jumbotron %}
- {% if not request.user.is_authenticated %}
-
 <div class="jumbotron">
  <div class="container">
 	<div class="row">
@@ -25,7 +23,6 @@
 		</div>
 	</div>
  </div>
- {% endif %}
 {% endblock %}
 
 {% block content %}

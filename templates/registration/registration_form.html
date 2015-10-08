@@ -2,11 +2,12 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-
+{% block head_title %}Register | {{ block.super }}{% endblock %}
 {% block content %}
 <div class='row'>
 <div class='col-sm-6 col-sm-offset-3'>
-<h1>Register for free!</h1>
+<h1>Create a Profile</h1>
+<h2>Registering gives you access to <b>paper submissions</b> and exclusive content!</h2>
 <form method="post" action=".">
   {% csrf_token %}
   {{ form|crispy }}
