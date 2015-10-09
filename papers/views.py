@@ -74,9 +74,5 @@ def review_sub(request):
 
 	return render(request, 'review_sub.html', context)
 
-def index(request):
-    paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !
-    context = {'paper_list': paper_list}
-    return render(request, 'papers/index.html', context)
-
-
+def about(request):
+	return render(request, "about.html", {})

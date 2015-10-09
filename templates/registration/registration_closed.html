@@ -1,6 +1,17 @@
 {% extends main.html" %}
 {% load i18n %}
 
+{% block head_title %}Registration | {{ block.super }}{% endblock %}
+
 {% block content %}
-	<p>{% trans "Registration is currently closed." %}</p>
+<div class="container"> 
+<!-- container fixes the footer to bottom of page -->
+	<div class='row'>
+		<div class='col-sm-6 col-sm-offset-3'>
+		<h1>Sorry</h1>
+		<p>{% trans "Registration is currently closed." %}</p>
+		</div>
+	</div>
+</div>
 {% endblock %}
+
