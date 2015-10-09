@@ -21,6 +21,10 @@ h6 {
     font-weight: 700;
 }
 
+.container {
+    width: 100%;
+}
+
 .topnav {
     font-size: 14px; 
     height: 100px;
@@ -28,6 +32,11 @@ h6 {
     border-color: transparent;
     /*Overwrites bootstraps visible border line*/
 
+}
+
+.navbar-right li {
+    background-color: white;
+    opacity: 0.5;
 }
 
 .lead {
