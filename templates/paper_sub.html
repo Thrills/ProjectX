@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-
+{% extends "main.html" %}
 {% load crispy_forms_tags %}
+<!-- This line calls the Crispy Forms package, which handles forms and their structure. -->
+<!-- http://django-crispy-forms.readthedocs.org/ -->
 
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Paper Submission</title>	
-	</head>
+{% block head_title %}Paper Submission | {{ block.super }}{% endblock %}
 
-	<body>
+{% block content %}
+
+<div class="container"> 
+<!-- container fixes the footer to bottom of page -->
+<div class='row'>
+	<div class='col-sm-6 col-sm-offset-3'> 
+	<!-- classes are named after bootstrap defaults in order to trigger responsiveness -->
 		<!-- List of uploaded documents -->
 		{% if paper_list %}
 			<ul>
@@ -29,11 +32,13 @@
 			<p>{{ form.paper.label_tag }} {{ form.paper.help_text }}</p>
 			<p>
 				{{ form.paper.errors }}
-
 			</p>
-			<p><input type="submit" value="Upload" /></p>
+			<input class='btn btn-default' type='submit' value='Upload' />
 		</form>
-		
-	</body>
+	</div>
+</div>
+</div>
+
+{% endblock %}
 
  

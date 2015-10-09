@@ -5,66 +5,20 @@
 {% block head_title %}Welcome | {{ block.super }}{% endblock %}
 
 {% block content %}
-<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="#">Conference 2015</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    {% if request.user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'auth_logout' %}">Logout</a>    
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'auth_login' %}">Login</a>  
-                    </li><li>
-                        <a href="{% url 'registration_register' %}">Register</a>  
-                    </li>
-                    {% endif %}
-                    <li>
-                        <a href="#contact">Contact Us</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-
     <!-- Header -->
     <a name="about"></a>
     <div class="intro-header">
         <div class="container">
-
-            <div class="row">
+    <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>SIISM Research Conference 2016</h1>
+                        <h1>RESEARCH CONFERENCE</h1>
                         <h3>The Stellenbosch Institute for Informatics and Software Management</h3>
+                        <h3>February 2016</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="#"></i> <span class="network-name"><b>Book Now</b></span></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Event</span></a>
+                                <a href="#" class="booking"><b>Book Now</b></a>
                             </li>
                         </ul>
                     </div>
@@ -87,11 +41,11 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Welcome to:<br>BIG DATA</h2>
-                    <p class="lead">Our first speaker <a target="_blank" href="https://za.linkedin.com/in/barnsza">Richard Barnett</a> brings us up to date with the burning topic of big data. <br>Register now to add your submission and become a speaker at our conference too.</p>
+                    <h2 class="section-heading">The future is:<br>NOW</h2>
+                    <p class="lead">Its a fuzzy topic, <a target="_blank" href="#">Artifical Intelligence</a> and one of the main themes at this year's conference. You have something to say about it? <br>Register now to add your submission and become a speaker at our conference too.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="../static/img/ipad.png" alt="">
+                    <img class="img-responsive" src="../static/img/robot.png" alt="">
                 </div>
             </div>
 
@@ -109,11 +63,11 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                    <h2 class="section-heading">Welcome to:<br>BIG DATA</h2>
+                    <p class="lead">Our first speaker <a target="_blank" href="https://za.linkedin.com/in/barnsza">Richard Barnett</a> brings us up to date with the burning topic of big data. <br>Register now to add your submission and become a speaker at our conference too.</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="../static/img/dog.png" alt="">
+                    <img class="img-responsive" src="../static/img/bigdata.png" alt="">
                 </div>
             </div>
 
@@ -128,14 +82,14 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-5 col-sm-6">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
-                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+                    <h2 class="section-heading">Proudly hosted by <br>Stellenbosch University</h2>
+                    <p class="lead">This conference will take place next year at the beautiful wine farm <a target="_blank" href="#">Spier.</a> Our cover photo is a drawing by a local artist of the Stellenbosch region. Talent like this is rich in our country; join us at the conference to meet some of those individuals. This conference will take place next year at the beautiful wine farm <a target="_blank" href="#">Spier.</a> Our cover photo is a drawing by a local artist of the Stellenbosch region. Talent like this is rich in our country; join us at the conference to meet some of those individuals. This conference will take place next year at the beautiful wine farm <a target="_blank" href="#">Spier.</a> Our cover photo is a drawing by a local artist of the Stellenbosch region. Talent like this is rich in our country; join us at the conference to meet some of those individuals.</p>
                 </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="../static/img/phones.png" alt="">
+                <div class="col-lg-5 col-sm-pull-6 col-sm-6">
+                    <img class="img-responsive" src="../static/img/stellenbosch.png" alt="">
                 </div>
             </div>
 
@@ -152,7 +106,7 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <h2>Connect to Start Bootstrap:</h2>
+                    <h2>Like and share this event:</h2>
                 </div>
                 <div class="col-lg-6">
                     <ul class="list-inline banner-social-buttons">
@@ -163,7 +117,7 @@
                             <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                         </li>
                         <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
                         </li>
                     </ul>
                 </div>
@@ -174,32 +128,5 @@
 
     </div>
     <!-- /.banner -->
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#about">About</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#services">Book</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#contact">Register</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Group 1E 2015. All Wrongs Reserved</p>
-                </div>
-            </div>
-        </div>
-    </footer>
+   
 {% endblock %}

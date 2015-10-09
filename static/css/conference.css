@@ -1,7 +1,93 @@
+/*Our Stylesheet for ProjectX
+    Group Project
+        Group 1E
+            October 2015
+			 -- Javascript may be blocked on some rga pcs */
+
+
 .text-align-center {
 	text-align: center;
 }
 
 .fa-facebook-f:before, .fa-facebook:before {
+	/*facebook color*/
     color: #3b5998;
+}
+
+
+/*Footer*/
+
+.copy-left {
+	/*This flips the copyright sign to become copyleft. */
+	display: inline-block;
+	text-align: right;
+	margin: 0px;
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+    -ms-filter: "FlipH";
+ }
+
+ #footer {
+ 	/*centers the footer text*/
+ 	text-align: center;
+ }
+
+#footer a {
+	color: #991F2A ;
+	font-size: 1em;
+}
+
+html, body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+.container {
+	min-height:100%;
+	position:relative;
+}
+
+.footer {
+	width:100%;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+
+
+/*Homepage booking link*/
+
+.booking {
+	color: #fff;
+	border: 2px solid #fff;
+	letter-spacing: 2px;
+	padding: 1em 1.5em !important;
+	border-radius: 300px;
+}
+
+.intro-message li a:hover {
+	color: black;
+	background-color: white;
+	text-decoration: none;
+}
+
+/*navigation*/
+
+.navbar-header img {
+
+	height: auto;
+    max-height: 100px;
+    max-width: 75%;
+    width: auto;
+    border: 0;
+}
+
+
+.navbar-default .navbar-nav>li>a {
+    color: #991F2A;
+    padding-top: 40px;
 }
