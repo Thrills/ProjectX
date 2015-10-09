@@ -99,3 +99,14 @@ html, body {
 .col-sm-offset-3 {
 	padding-top: 150px;
 }
+
+.btn-primary {
+    color: #FFF;
+    background-color: #991F2A;
+    border-color: #991F2A;
+}
+
+.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    color: #991F2A;
+    background-color: #FFF;
+    border-color: #FFF;
