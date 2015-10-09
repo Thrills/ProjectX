@@ -23,11 +23,17 @@ h6 {
 
 .topnav {
     font-size: 14px; 
+    height: 100px;
+    background-color: transparent;
+    border-color: transparent;
+    /*Overwrites bootstraps visible border line*/
+
 }
 
 .lead {
     font-size: 18px;
     font-weight: 400;
+
 }
 
 .intro-header {
@@ -41,13 +47,13 @@ h6 {
 
 .intro-message {
     position: relative;
-    padding-top: 20%;
+    padding-top: 10%;
     padding-bottom: 20%;
 }
 
 .intro-message > h1 {
     margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    text-shadow: 3px 8px 3px rgba(0,0,0,0.6);
     font-size: 5em;
 }
 
@@ -58,7 +64,7 @@ h6 {
 }
 
 .intro-message > h3 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+    text-shadow: 3px 4px 3px rgba(0,0,0,0.6);
 }
 
 @media(max-width:767px) {
@@ -94,13 +100,19 @@ h6 {
 
 .content-section-a {
     padding: 50px 0;
-    background-color: #f8f8f8;
+    color: #5D5D5D;
 }
 
 .content-section-b {
     padding: 50px 0;
+    background-color:  #99202A;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
+    color: #5D5D5D;
+}
+
+.content-section-b a {
+    color: white;
 }
 
 .section-heading {
