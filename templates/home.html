@@ -5,50 +5,6 @@
 {% block head_title %}Welcome | {{ block.super }}{% endblock %}
 
 {% block content %}
-<<<<<<< HEAD
-<nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
-        <div class="container topnav">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand topnav" href="#">Conference 2015</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    {% if request.user.is_authenticated %}
-                    <li>
-                        <a href="{% url 'auth_logout' %}">Logout</a>    
-                    </li>
-                    {% else %}
-                    <li>
-                        <a href="{% url 'auth_login' %}">Login</a>  
-                    </li><li>
-                        <a href="{% url 'registration_register' %}">Register</a>  
-                    </li>
-                    {% endif %}
-                    <li>
-                        <a href="#contact">Contact Us</a>
-                    </li>
-                </ul>
-                </form>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-
-=======
->>>>>>> c81f3a311bc01732874cc3d35318daafba9a04df
     <!-- Header -->
     <a name="about"></a>
     <div class="intro-header">
