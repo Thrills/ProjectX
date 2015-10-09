@@ -44,6 +44,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'crispy_forms', #http://django-crispy-forms.readthedocs.org/
     'registration', #http://django-registration-redux.readthedocs.org/
+    'test_app'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -125,3 +126,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
+
+# Creates a local directory that our emails appear in to retreive keys
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = 'static/email/' 
