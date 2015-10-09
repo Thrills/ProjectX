@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Delegate(models.Model):  # The database for delegates who have made a booking
-
+    id = models.AutoField(primary_key=True)
     dietary = (  # Provides delegate with a specific choice
                  ('Vegetarian', 'Vegetarian'),
                  ('Vegan', 'Vegan'),
@@ -20,17 +20,14 @@ class Delegate(models.Model):  # The database for delegates who have made a book
     country = models.CharField(max_length=50, blank=True)
     dietary_requirements = models.CharField(max_length=20, choices=dietary, blank=True)
     other_requirements = models.CharField(max_length=200, blank=True)
-    email = models.EmailField(max_length=50, primary_key=True)
-    ticket_number = models.CharField(max_length=3)
+    email = models.EmailField(max_length=50)
 
     def __str__(self):
-        return '%s %s %s %s %s %s %s %s' % (self.delegate_name, self.delegate_surname, self.institution, self.country,
-                                            self.dietary_requirements, self.other_requirements, self.email,
-                                            self.ticket_number)
+        return '%s' % (self.id)
 
 
-class Ticket(models.Model):
-    ticket_number = models.ForeignKey(Delegate)
+# class Ticket(models.Model):
+#     id = models.ForeignKey(Delegate)
 
-    def __str__(self):
-        return self.ticket_number
+#     def __str__(self):
+#         return self.id

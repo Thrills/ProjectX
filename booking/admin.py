@@ -5,7 +5,7 @@ from .forms import BookingForm
 
 
 class DelegateAdmin(admin.ModelAdmin):
-    list_display = ["email"]
+    list_display = ["__str__", "delegate_name", "delegate_surname", "email"]
     form = BookingForm
 
 admin.site.register(Delegate, DelegateAdmin)
