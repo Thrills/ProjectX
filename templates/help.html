@@ -1,0 +1,99 @@
+{% extends "main.html" %}
+% block head_title %}Welcome | {{ block.super }}{% endblock %}
+
+{% block content %}
+<h1>Help Document</h1>
+<h3>Frequently Asked Questions</h3>
+<ul>
+	<li><h5>I can't log in?</h5></li>
+	<li>Have you registered? In order to log in you need to have successfully created an account.</li>
+	<li>If you have registered an account, you may be entering your username and/or password incorrectly. If this is the case please go <a href="#">Reset your password</a></li>
+	<li><h5>How to submit paper</h5></li>
+	<li>go to <a href="{% url 'registration' %}">registration</a> and create a profile</li>
+	<li>Complete the <a href="{% url 'paper_sub' %}">submission form</a></li>
+	<li>Make sure all the information is correct</li>
+	<li>File type must be PDF or DOC</li>
+	<li>Abstract around 300 words in English.</li>
+
+	<li><h5>How do I know that my submission has been accepted?</h5></li>
+	<li>You will be notified by December 2015 via email.</li>
+	<li><h5>How Can i register a guest?</h5></li>
+	<li>You can book for anyone by filling out the <a href="{% url 'booking'%}">Booking form.</a> Please ensure that you fill in their credentials. The email can be whoever is going to print and collect the ticket</li>
+	<li><h5>How do I see my invoice/receipt?</h5></li>
+	<li>A booking confirmation will be sent to the email you provided in your booking. If it does not appear please <a href="#contact">Contact Us</a>With your issue. Please include your email address</li>
+	<li><h5>I submitted incorrect details/my credentials have changed?</h5></li>
+	<li>please <a href="#contact">Contact Us</a>With your issue.</li>
+	<li><h5>How do I change my password?</h5></li>
+	<li>go to <a href="#">Password Reset</a></li>
+	<li><h5>I cant navigate back to home?</h5></li>
+	<li>Click the Logo on the top right corner or the link at the bottom of the page.</a></li>
+	<li><h5>How do i become a Committee member or reviewer?</h5></li>
+	<li>The chairperson has selected representatives. You can email him directly to apply, however it is unlikely that a post will be available.</a></li>
+	<li><h5>I have a question about something else not covered here. Who should i contact?</h5></li>
+	<li>Please feel free to send any suggestions, queries or concerns to us via telephone or email. Both are provided in the footer at the bottom of each page.</a></li>
+</ul>
+
+<ul>
+	<li><h3>Booking a ticket</h3></li>
+	<li>Only fully completed registrations will be accepted. The registration fee is based on the date of the receipt of the registration and the payment in full in accordance with the deadlines mentioned above. Should one deadline be missed, the next applicable fee will be charged automatically. The registration will only be confirmed upon receipt of payment in full. Each participant will receive electronic confirmation of their registration.If the maximum attendee capacity is reached, the organisers reserve the right to refuse any registration. To be eligible to register for the conference, attendees must be at least 18 years old. Attendees may be asked to present an official identity card stating their age.</li>
+	<li><h3>Cancellations</h3></li>
+	Notification of cancellation must be made in writing and sent to the Conference Committee by email or fax.
+	If the written notification of cancellation is received before 17 January 2016 the paid registration fee less an administration fee of R50 will be refunded. No refunds will be made for cancellations received after this date. Credit will not be given for unattended events or early termination of attendance.
+	<li><h5>Registration Name Change</h5></li>
+	<li>A handling fee of R50 will be charged for every name change to an existing delegate registration. A new registration form for the substitute attendee should be submitted, as well as a proof for the reduced fee if applicable. Name changes will only be accepted until the standard registration deadline indicating clearly the new and old name. After the standard registration deadline (11 January 2016), all name changes must be carried out onsite.</li>
+	<li><h5>Modification of the Programme</h5></li>
+	<li>The Conference committee and the Chairperson reserve the right to modify the programme, which is published as an indication only.</li>
+	
+	<li><h5>Cancellation of the Conference</h5></li>
+	<li>In the event that the conference cannot be held or is postponed due to events beyond the control of the conference organisers or due to events which are not attributable to wrongful intent or gross negligence of the conference organisers, the conference organisers cannot be held liable by attendees for any damages, costs, or losses incurred, such as transportation costs, accommodation costs, financial losses, etc.
+	Under these circumstances, the conference organisers reserve the right to either retain the entire registration fee and to use it for a future conference, or to reimburse the attendee after deducting costs already incurred for the organisation of the conference and which could not be recovered from third parties.</li>
+	<li><h5>Letter of Confirmation / Payment Receipt</h5></li>
+	<li>A letter of confirmation / payment receipt will be sent by email once the committee has received the fully completed registration form and the related payment.
+	Please bring this confirmation to the conference venue and go directly to the Self Printing Terminals. The barcode on this document will allow you to print your conference name badge.</li>
+</ul>
+
+<ul>
+	<li><h3>Submission Information</h3></li>
+	<li>Submissions must be original, and should not have been previously published, accepted for publication, or currently be under review. Authors may not submit their paper elsewhere during the reviewing period. These considerations apply only to journals and conferences, and not to workshops and forums with a limited audience and without archival proceedings. In case of doubt, please contact the Program Chair.</li>
+
+	<li>Papers must be submitted in .doc/PDF format. The maximum length of a submission is 9 pages including abstract, figures, and appendices (if any) but excluding references. Reviewing will be non-blind.</li>
+
+	<li><h3>Submission details</h3></li>
+	<li>Information Systems (IS) is an exciting, well-established field of research. In IS a fundamental assumption is that an agent's knowledge is explicitly represented in a declarative form, suitable for processing by dedicated reasoning engines. This assumption, that much of what an agent deals with is knowledge-based, is common in many modern intelligent systems. Consequently, IS has contributed to the theory and practice of various areas in AI, such as automated planning and natural language understanding, among others, as well as to fields beyond AI, including databases, software engineering, the semantic web, computational biology, and the development of software agents.
+
+	The SIISM conference series is the leading forum for timely in-depth presentation of progress in the theory and principles underlying the representation and computational management of knowledge. We solicit papers presenting novel results on the principles of IS that clearly contribute to the formal foundations of relevant problems or show the applicability of results to implemented or implementable systems.
+
+	We welcome papers from other areas that show clear use of, or contributions to, the principles or practice of IS. We also encourage "reports from thefield" of applications, experiments, developments, and tests. Such papers should be explicitly identified as reports from the field by the authors, to ensure appropriate reviewing, and must include a section on evaluation.
+
+	The best paper of the conference will receive the 2016 Tiaan du Toit Best Paper Prize, and the best student paper, whose main author is a student, will receive the 2016 Marco Student Paper Prize. In addition, a few selected papers from SIISM 2016 will have the opportunity for fast-track publication in the AI Journal, and the best 1-2 papers in the area of logic programming or answer set programming will have the opportunity for fast-track publication in TPLP.
+
+	Topics of interest include, but are not limited to:
+
+	<li>Argumentation</li>
+	<li>Belief revision and update, belief merging, etc.</li>
+	<li>Commonsense reasoning</li>
+	<li>Contextual reasoning</li>
+	<li>Description logics</li>
+	<li>Diagnosis, abduction, explanation</li>
+	<li>Inconsistency- and exception tolerant reasoning, paraconsistent logics</li>
+	<li>IS and autonomous agents: intelligent agents, cognitive robotics, multi-agent systems</li>
+	<li>IS and data management, data analytics</li>
+	<li>IS and decision making, game theory, social choice</li>
+	<li>IS and machine learning, inductive logic programming, knowledge discovery and acquisition</li>
+	<li>IS and natural language processing</li>
+	<li>IS and the Web, Semantic Web</li>
+	<li>Logic programming, answer set programming, constraint logic programming</li>
+	<li>Nonmonotonic logics, default logics, conditional logics</li>
+	<li>Ontology formalisms and models</li>
+	<li>Philosophical foundations of KM</li>
+	<li>Preferences: modeling and representation, preference-based reasoning</li>
+	<li>Reasoning about action and change: action languages, situation calculus, causality</li>
+	<li>Reasoning about knowledge and belief, dynamic epistemic logic, epistemic and doxastic logics</li>
+	<li>Reasoning systems and solvers, knowledge compilation</li>
+	<li>Spatial reasoning and temporal reasoning, qualitative reasoning</li>
+	<li>Uncertainty, representations of vagueness, many-valued and fuzzy logics</li>
+	</li>
+	</ul>
+
+
+{% endblock %}
