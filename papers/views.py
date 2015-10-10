@@ -1,12 +1,12 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import RequestContext
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect#, redirect
 from django.core.urlresolvers import reverse
 
-from .models import RegisteredUser, Paper, Review
+from .models import Paper, Review, MyUser
 
-from .forms import RegisteredUserForm, PaperForm, ReviewForm
+from .forms import PaperForm, ReviewForm, RegisterForm
 
 def home(request):
 	title = '' # no nice welcome msg for anon users
@@ -20,21 +20,25 @@ def home(request):
 	return render(request, "home.html", context)
 
 def registration(request):
-	form = RegisteredUserForm(request.POST or None)
-	context = {
-		# "title": title,
-		"form": form
-	}
 
+	form = RegisterForm(request.POST or None)
 	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.save()
-		#print instance.id
-		context = {
-		#"title": "Thank You"
-	}
+		username = form.cleaned_data['username']
+		email = form.cleaned_data['email']
+		password = form.cleaned_data['password2']
+		new_user = MyUser()
+		new_user.username = username
+		new_user.email = email
+		new_user.set_password
+		new_user.save()
+		# return redirect('login')
 
-	return render(request, "registration/registration_form.html", context)
+	context = {
+		"form": form,
+		"action_value": "",
+		"submit_btn_value": "Register"
+	}
+	return render(request, "registration.html", context)
 
 def paper_sub(request):
 	if request.method == 'POST':
@@ -44,7 +48,7 @@ def paper_sub(request):
 			new_paper.save
 
 			# Redirect to the document list after POST
-			return HttpResponseRedirect(reverse('ProjectX.papers.views.paper_sub'))
+			return HttpResponseRedirect(reverse('paper_sub'))
 
 	else:
 		form = PaperForm() #empty unbound form
