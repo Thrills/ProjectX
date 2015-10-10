@@ -1,0 +1,77 @@
+Content-Type: multipart/alternative;
+ boundary="===============8047577269917634328=="
+MIME-Version: 1.0
+Subject: Complete Registration for 127.0.0.1:8000
+From: webmaster@localhost
+To: TestingEmail@Local11.com
+Date: Fri, 09 Oct 2015 12:44:28 -0000
+Message-ID: <20151009124428.25204.93632@hcua-xdg221.rga.stb.sun.ac.za>
+
+--===============8047577269917634328==
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+
+Activate account at 127.0.0.1:8000:
+
+Good day 
+
+Click the link below to activate your account.
+
+http://127.0.0.1:8000/accounts/activate/5148a68d66c624c61924e601ed6af69f69fda13d/
+
+
+The above link is valid for 7 days.
+
+Thanks, SIISM Conference
+
+--===============8047577269917634328==
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>127.0.0.1:8000 registration</title>
+</head>
+
+<body>
+<p>
+    
+    You (or someone pretending to be you) have asked to register an account at
+    127.0.0.1:8000.  If this wasn't you, please ignore this email
+    and your address will be removed from our records.
+    
+</p>
+<p>
+    
+    To activate this account, please click the following link within the next
+    7 days:
+    
+</p>
+
+<p>
+    <a href="http://127.0.0.1:8000/accounts/activate/5148a68d66c624c61924e601ed6af69f69fda13d/">
+        127.0.0.1:8000/accounts/activate/5148a68d66c624c61924e601ed6af69f69fda13d/
+    </a>
+</p>
+<p>
+    
+    Sincerely,
+    127.0.0.1:8000 Management
+    
+</p>
+</body>
+
+</html>
+
+
+
+
+--===============8047577269917634328==--
+-------------------------------------------------------------------------------
