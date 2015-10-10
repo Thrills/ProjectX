@@ -84,15 +84,18 @@ def review_sub(request):
 
 	return render(request, 'review_sub.html', context)
 
+def about(request):
+	return render(request, "about.html", {})
+
 def auth_login(request):
 	form = LoginForm(request.POST or None)
-	if form.is_valid():						#Make sure that user is there
+	if form.is_valid():						#Make sure that user exists
 		username = form.cleaned_data['username']
 		password = form.cleaned_data['password']
-		#print username, password
-		user = authenticate(username=username, password=password)
+		user = authenticate(username=username, password=password)	#Authentication
 		if user is not None:
-			login(request, user)
+			login(request, user)			
+
 	context = {"form": form}
 	return render(request, 'login.html', context)
 
@@ -106,5 +109,4 @@ def index(request):
     paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !
     context = {'paper_list': paper_list}
     return render(request, 'papers/index.html', context)
-
 
