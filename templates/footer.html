@@ -1,27 +1,63 @@
  <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12" id="footer">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="{% url 'home' %}">Home</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#about">About</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="{% url 'booking'%}">Book</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="{% url 'registration_register' %}">Register</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyleft <span class="copy-left">©</span>. Group 1E 2015. All Wrongs Reserved.</p>
-                </div>
+
+<footer class="footer-distributed">
+
+        <div class="footer-left">
+
+        <h3><span>Stellenbosch</span> University</h3>
+
+                <p class="footer-links">
+                    <a href="#">Home</a>
+                    ·
+                    <a href="{% url 'booking' %}">Booking</a>
+                    ·
+                    <a href="{% url 'paper_sub' %}">Submission</a>
+                    ·
+                    <a href="{% url 'about' %}">About</a>
+                    ·
+                    <a href="#">Faq</a>
+                    ·
+                    <a href="{% url 'registration_register' %}">Contact</a>
+                </p>
+
+                <p class="footer-company-name">SIISM Conference. 2015</p>
             </div>
-        </div>
-    </footer>
+
+            <div class="footer-center">
+
+                <div>
+                    <i class="fa fa-map-marker"></i>
+                    <p><span>21 Victoria Street</span> Stellenbosch, South Africa</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-phone"></i>
+                    <p>+555 123456</p>
+                </div>
+
+                <div>
+                    <i class="fa fa-envelope"></i>
+                    <p><a href="mailto:support@conference.com">support@conference.com</a></p>
+                </div>
+
+            </div>
+
+            <div class="footer-right">
+
+                <p class="footer-company-about">
+                    <span>Group 1D</span>
+                    Aron Frost 17071186, Tiaan Du toit, Marco, L
+                </p>
+
+                <div class="footer-icons">
+
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                    <a href="#" id="github"><i class="fa fa-github"></i></a>
+
+                </div>
+
+            </div>
+
+</footer>
