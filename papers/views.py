@@ -28,12 +28,15 @@ def registration(request):
 		username = form.cleaned_data['username']
 		email = form.cleaned_data['email']
 		password = form.cleaned_data['password2']
+		first_name = form.cleaned_data['first_name']
+		last_name = form.cleaned_data['last_name']
 		new_user = MyUser()
 		new_user.username = username
 		new_user.email = email
-		new_user.set_password
+		new_user.set_password(password)
+		new_user.first_name = first_name
+		new_user.last_name = last_name
 		new_user.save()
-		# return redirect('login')
 		return HttpResponseRedirect(reverse('login'))
 
 	context = {
@@ -81,6 +84,9 @@ def review_sub(request):
 
 	return render(request, 'review_sub.html', context)
 
+def about(request):
+	return render(request, "about.html", {})
+
 def auth_login(request):
 	form = LoginForm(request.POST or None)
 	if form.is_valid():						#Make sure that user exists
@@ -88,7 +94,8 @@ def auth_login(request):
 		password = form.cleaned_data['password']
 		user = authenticate(username=username, password=password)	#Authentication
 		if user is not None:
-			login(request, user)			
+			login(request, user)
+			return HttpResponseRedirect(reverse('home'))			
 
 	context = {"form": form}
 	return render(request, 'login.html', context)
@@ -103,5 +110,4 @@ def index(request):
     paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !
     context = {'paper_list': paper_list}
     return render(request, 'papers/index.html', context)
-
 

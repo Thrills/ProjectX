@@ -1,6 +1,17 @@
 {% extends "main.html" %}
 {% load i18n %}
 
+{% block head_title %}Activation | {{ block.super }}{% endblock %}
+
 {% block content %}
-<p class='lead'>{% trans "Your account is now activated." %}</p>
+<div class="container"> 
+<!-- container fixes the footer to bottom of page -->
+	<div class='row'>
+		<div class='col-sm-6 col-sm-offset-3'>
+		<h1>Thank you.</h1>
+		<p class='lead'>{% trans "Your account is now activated." %}</p>
+		</div>
+	</div>
+</div>
 {% endblock %}
+

@@ -5,7 +5,7 @@
 {% block head_title %}Login | {{ block.super }}{% endblock %}
 {% block content %}
 <div class='row'>
-<div class='col-sm-6 col-sm-offset-3'>
+<div class='col-sm-6 col-sm-offset-3' id="form">
 <h1>Login</h1>
 <form method="post" action=".">
   {% csrf_token %}
