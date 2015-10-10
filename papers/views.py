@@ -94,7 +94,8 @@ def auth_login(request):
 		password = form.cleaned_data['password']
 		user = authenticate(username=username, password=password)	#Authentication
 		if user is not None:
-			login(request, user)			
+			login(request, user)
+			return HttpResponseRedirect(reverse('home'))			
 
 	context = {"form": form}
 	return render(request, 'login.html', context)

@@ -111,7 +111,7 @@ class Paper(models.Model):
     paper_avgScore = models.CharField(max_length=2, blank=True, null=True)
     paper_accepted = models.NullBooleanField()
     def __str__(self):
-    	return '%s' % (self.paper_code) #self.user.username
+    	return '%s %s' % (self.paper_code, self.user.username)
 
 class Review(models.Model):
     review_score = (  # Provides users with a specific choice

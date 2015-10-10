@@ -1,0 +1,77 @@
+Content-Type: multipart/alternative;
+ boundary="===============2827239048905189215=="
+MIME-Version: 1.0
+Subject: Complete Registration for example.com
+From: webmaster@localhost
+To: bob@gmail.com
+Date: Sat, 10 Oct 2015 10:53:04 -0000
+Message-ID: <20151010105304.3560.39886@hcua-xds002.rga.stb.sun.ac.za>
+
+--===============2827239048905189215==
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+
+Activate account at example.com:
+
+Good day 
+
+Click the link below to activate your account.
+
+http://example.com/accounts/activate/715fb82fb25adf0b2a740d82d7076ff6df132b70/
+
+
+The above link is valid for 7 days.
+
+Thanks, SIISM Conference
+
+--===============2827239048905189215==
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+
+
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>example.com registration</title>
+</head>
+
+<body>
+<p>
+    
+    You (or someone pretending to be you) have asked to register an account at
+    example.com.  If this wasn't you, please ignore this email
+    and your address will be removed from our records.
+    
+</p>
+<p>
+    
+    To activate this account, please click the following link within the next
+    7 days:
+    
+</p>
+
+<p>
+    <a href="http://example.com/accounts/activate/715fb82fb25adf0b2a740d82d7076ff6df132b70/">
+        example.com/accounts/activate/715fb82fb25adf0b2a740d82d7076ff6df132b70/
+    </a>
+</p>
+<p>
+    
+    Sincerely,
+    example.com Management
+    
+</p>
+</body>
+
+</html>
+
+
+
+
+--===============2827239048905189215==--
+-------------------------------------------------------------------------------
