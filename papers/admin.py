@@ -51,7 +51,7 @@ class PaperAdmin(admin.ModelAdmin):
 admin.site.register(Paper, PaperAdmin)
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "id", "review_score"]
+    list_display = ["__str__", "review_score"]
     form = ReviewForm
     #class Meta:
     #    model = Review
