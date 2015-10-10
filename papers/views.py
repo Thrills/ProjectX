@@ -83,13 +83,13 @@ def review_sub(request):
 
 def auth_login(request):
 	form = LoginForm(request.POST or None)
-	if form.is_valid():						#Make sure that user is there
+	if form.is_valid():						#Make sure that user exists
 		username = form.cleaned_data['username']
 		password = form.cleaned_data['password']
-		#print username, password
-		user = authenticate(username=username, password=password)
+		user = authenticate(username=username, password=password)	#Authentication
 		if user is not None:
-			login(request, user)
+			login(request, user)			
+
 	context = {"form": form}
 	return render(request, 'login.html', context)
 
