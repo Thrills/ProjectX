@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import RequestContext
-from django.http import HttpResponse, HttpResponseRedirect#, redirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
 from .models import Paper, Review, MyUser
@@ -20,6 +20,7 @@ def home(request):
 	}
 	return render(request, "home.html", context)
 
+# -----------------------needs to be commented out if you want to create a new superuser
 def registration(request):
 
 	form = RegisterForm(request.POST or None)
@@ -33,6 +34,7 @@ def registration(request):
 		new_user.set_password
 		new_user.save()
 		# return redirect('login')
+		return HttpResponseRedirect(reverse('login'))
 
 	context = {
 		"form": form,

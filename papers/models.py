@@ -2,7 +2,6 @@ import datetime
 
 from django.db import models
 from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser
-from django.db.models.signals import post_save
 # from django.utils import timezone
 
 # Our models.
@@ -12,7 +11,7 @@ class MyUserManager(BaseUserManager):
         Creates and saves a User with the given username, email and password.
         """
         if not username:
-            raise ValueError('Users include username')
+            raise ValueError('Users must include username')
 
         if not email:
             raise ValueError('Users must have an email address')
@@ -57,12 +56,7 @@ class MyUser(AbstractBaseUser):
     is_cm = models.BooleanField(default=False, verbose_name='Is a Committee Member')
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    # roles = (  # Provides users with a specific choice
-    #              ('Author', 'Author'),
-    #              ('Reviewer', 'Reviewer'),
-    #              ('Commiteee Member', 'Commiteee Member'),
-    #              )
-    # role = models.CharField(max_length=20, choices=roles, blank=True)
+    # role = models.CharField(max_length=20)
     # institution = models.CharField(max_length=50)
     # country = models.CharField(max_length=50)
 
@@ -72,7 +66,7 @@ class MyUser(AbstractBaseUser):
     REQUIRED_FIELDS = ['email']
 
     def get_full_name(self):
-        # The user is identified by their email address
+        # The user is identified by their full name
         return '%s %s' % (self.first_name, self.last_name)
 
     def get_short_name(self):
@@ -99,28 +93,12 @@ class MyUser(AbstractBaseUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
+# def new_user_reciever(sender, instance, created, *args, **kwargs):
+#     if created:
+#         new_profile, is_created = UserProfile.objects.created(user=instance)
+#         print (new_profile, is_created)
 
-
-# class UserProfile(models.Model):
-#     user = models.OneToOneField(MyUser)
-#     roles = (  # Provides users with a specific choice
-#                  ('Author', 'Author'),
-#                  ('Reviewer', 'Reviewer'),
-#                  ('Commiteee Member', 'Commiteee Member'),
-#                  )
-#     role = models.CharField(max_length=20, choices=roles, blank=True)
-#     institution = models.CharField(max_length=50)
-#     country = models.CharField(max_length=50)
-
-#     def __str__(self):
-#         return self.user.username
-
-def new_user_reciever(sender, instance, created, *args, **kwargs):
-    if created:
-        new_profile, is_created = UserProfile.objects.created(user=instance)
-        print (new_profile, is_created)
-
-post_save.connect(new_user_reciever, sender=MyUser)
+# post_save.connect(new_user_reciever, sender=MyUser)
 
 class Paper(models.Model):
     # user = models.OneToOneField(MyUser)
