@@ -1,7 +1,5 @@
 from django import forms
-
 from .models import Paper, Review, MyUser
-
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 
 class RegisterForm(forms.Form):
@@ -116,3 +114,8 @@ class ReviewForm(forms.ModelForm):
 		model = Review
 		fields = ['review_score', 'comments']
 
+class LoginForm(forms.Form):
+    username = forms.CharField(label="Username")
+    password = forms.CharField(widget=forms.PasswordInput())
+    
+    

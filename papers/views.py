@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login, logout
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import RequestContext
@@ -6,7 +7,7 @@ from django.core.urlresolvers import reverse
 
 from .models import Paper, Review, MyUser
 
-from .forms import PaperForm, ReviewForm, RegisterForm
+from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
 def home(request):
 	title = '' # no nice welcome msg for anon users
@@ -77,6 +78,24 @@ def review_sub(request):
 	}
 
 	return render(request, 'review_sub.html', context)
+
+def auth_login(request):
+	form = LoginForm(request.POST or None)
+	if form.is_valid():						#Make sure that user is there
+		username = form.cleaned_data['username']
+		password = form.cleaned_data['password']
+		#print username, password
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			login(request, user)
+	context = {"form": form}
+	return render(request, 'login.html', context)
+
+def auth_logout(request):
+	logout(request)
+	#return HttpResponseRedirect('/')
+	return render(request, 'logout.html')
+
 
 def index(request):
     paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !
