@@ -1,12 +1,13 @@
+from django.contrib.auth import authenticate, login, logout
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
-from .models import RegisteredUser, Paper, Review
+from .models import Paper, Review, MyUser
 
-from .forms import RegisteredUserForm, PaperForm, ReviewForm
+from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
 def home(request):
 	title = '' # no nice welcome msg for anon users
@@ -19,22 +20,28 @@ def home(request):
 	}
 	return render(request, "home.html", context)
 
+# -----------------------needs to be commented out if you want to create a new superuser
 def registration(request):
-	form = RegisteredUserForm(request.POST or None)
-	context = {
-		# "title": title,
-		"form": form
-	}
 
+	form = RegisterForm(request.POST or None)
 	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.save()
-		#print instance.id
-		context = {
-		#"title": "Thank You"
-	}
+		username = form.cleaned_data['username']
+		email = form.cleaned_data['email']
+		password = form.cleaned_data['password2']
+		new_user = MyUser()
+		new_user.username = username
+		new_user.email = email
+		new_user.set_password
+		new_user.save()
+		# return redirect('login')
+		return HttpResponseRedirect(reverse('login'))
 
-	return render(request, "registration/registration_form.html", context)
+	context = {
+		"form": form,
+		"action_value": "",
+		"submit_btn_value": "Register"
+	}
+	return render(request, "registration.html", context)
 
 def paper_sub(request):
 	if request.method == 'POST':
@@ -44,7 +51,7 @@ def paper_sub(request):
 			new_paper.save
 
 			# Redirect to the document list after POST
-			return HttpResponseRedirect(reverse('ProjectX.papers.views.paper_sub'))
+			return HttpResponseRedirect(reverse('paper_sub'))
 
 	else:
 		form = PaperForm() #empty unbound form
@@ -76,3 +83,27 @@ def review_sub(request):
 
 def about(request):
 	return render(request, "about.html", {})
+
+def auth_login(request):
+	form = LoginForm(request.POST or None)
+	if form.is_valid():						#Make sure that user exists
+		username = form.cleaned_data['username']
+		password = form.cleaned_data['password']
+		user = authenticate(username=username, password=password)	#Authentication
+		if user is not None:
+			login(request, user)			
+
+	context = {"form": form}
+	return render(request, 'login.html', context)
+
+def auth_logout(request):
+	logout(request)
+	#return HttpResponseRedirect('/')
+	return render(request, 'logout.html')
+
+
+def index(request):
+    paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !
+    context = {'paper_list': paper_list}
+    return render(request, 'papers/index.html', context)
+

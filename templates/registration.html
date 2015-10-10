@@ -1,7 +1,27 @@
+{% extends "main.html" %}
+{% load i18n %}
 {% load crispy_forms_tags %}
 
-<form method='POST' action=''>{% csrf_token %}
+{% block head_title %}Register | {{ block.super }}{% endblock %}
+{% block content %}
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
+<h1>Create a Profile</h1>
+<h2>Registering gives you access to <b>paper submissions</b> and exclusive content!</h2>
+<form method='POST' action='{{action_value}}'>{% csrf_token %}
 {{ form|crispy }}
 
-<input type='submit' value="Register" />
+<input class='btn btn-block btn-primary' type='submit' value='{{submit_btn_value}}' />
 </form>
+</div>
+</div>
+
+<hr/>
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3 text-align-center'>
+<p>Need to <a href="{% url 'auth_login' %}">Login</a>?</p>
+</div>
+</div>
+
+
+{% endblock %}

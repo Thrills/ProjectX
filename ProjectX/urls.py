@@ -9,6 +9,8 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^$', 'papers.views.home', name='home'),
     url(r'^about', 'papers.views.about', name='about'),
+    url(r'^login/$', 'papers.views.auth_login', name='login'),
+    url(r'^logout/$', 'papers.views.auth_logout', name='logout'),
     url(r'^registration', 'papers.views.registration', name='registration'),
     # url(r'^cm_reg', 'papers.views.cm_reg', name='cm_reg'),
     url(r'^review_sub/', 'papers.views.review_sub', name='review_sub'),

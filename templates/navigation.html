@@ -24,14 +24,14 @@
                     {% if request.user.is_authenticated %}
                     <!-- This switches the link login and logout depending on users state -->
                     <li>
-                        <a href="{% url 'auth_logout' %}">Logout</a>    
+                        <a href="{% url 'logout' %}">Logout</a>    
                     </li>
                     {% else %}
                     <!-- Else display login -->
                     <li>
-                        <a href="{% url 'auth_login' %}">Login</a>  
+                        <a href="{% url 'login' %}">Login</a>  
                     </li><li>
-                        <a href="{% url 'registration_register' %}">Register</a>  
+                        <a href="{% url 'registration' %}">Register</a>  
                     </li>
                     {% endif %}
                     <li>
