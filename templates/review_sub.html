@@ -1,7 +1,27 @@
+{% extends "main.html" %}
 {% load crispy_forms_tags %}
 
-<form method='POST' action=''>{% csrf_token %}
-{{ form|crispy }}
+{% block head_title %}Review | {{ block.super }}{% endblock %}
 
-<input type='submit' value="Register" />
+{% block content %}
+<div class="container"> 
+<!-- container fixes the footer to bottom of page -->
+	<div class='row'>
+		<div class='col-sm-6 col-sm-offset-3'>
+		<h1>Paper Reviewer</h1>
+		<h1>Please keep your review confidental, and remember to be ethical.</h1>
+		<form method='POST' action=''>{% csrf_token %}
+		{{ form|crispy }}
+
+		<input  class='btn btn-block btn-primary' type='submit' value="Submit" />
+		</form>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+<<<<<<< HEAD
+<input type='submit' value="Submit" />
 </form>
+=======
+>>>>>>> d462052eec752dc515897a019bd5661bc49a4e8f

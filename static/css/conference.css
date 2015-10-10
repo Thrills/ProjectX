@@ -91,3 +91,22 @@ html, body {
     color: #991F2A;
     padding-top: 40px;
 }
+
+.col-sm-6  {
+	padding-top: 150px;
+}
+
+.col-sm-offset-3 {
+	padding-top: 150px;
+}
+
+.btn-primary {
+    color: #FFF;
+    background-color: #991F2A;
+    border-color: #991F2A;
+}
+
+.btn-primary.active, .btn-primary.focus, .btn-primary:active, .btn-primary:focus, .btn-primary:hover, .open > .dropdown-toggle.btn-primary {
+    color: #991F2A;
+    background-color: #FFF;
+    border-color: #FFF;

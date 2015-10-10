@@ -26,5 +26,5 @@ def booking(request):
     #else:
     #    form = BookingForm()
 
-    return render(request, 'booking/booking.html', {'form': form})
+    return render(request, 'booking.html', {'form': form})
     

@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('papers', '0001_initial'),
+        ('booking', '0007_auto_20151008_1425'),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='reviewer',
-            name='paper_code',
-            field=models.ForeignKey(to='papers.Paper', null=True),
+            model_name='delegate',
+            name='id',
+            field=models.AutoField(serialize=False, primary_key=True),
         ),
     ]

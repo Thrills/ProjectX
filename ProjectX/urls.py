@@ -24,7 +24,7 @@ urlpatterns = [
     # url(r'^cm_reg', 'papers.views.cm_reg', name='cm_reg'),
     url(r'^review_sub/', 'papers.views.review_sub', name='review_sub'),
     url(r'^paper_sub', 'papers.views.paper_sub', name='paper_sub'),
-    url(r'^booking/', include('booking.urls', namespace="booking")),
+    url(r'^booking', 'booking.views.booking', name='booking'),
     url(r'^papers/', include('papers.urls', namespace="papers")),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')), 
