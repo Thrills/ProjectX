@@ -42,14 +42,6 @@ admin.site.register(MyUser, MyUserAdmin)
 # unregister the Group model from admin.
 admin.site.unregister(Group)
 
-# class UserProfileAdmin(admin.ModelAdmin):
-#     list_display = ["__str__", "role", "institution"]
-#     # form = RegisteredUserForm                                    # Creates fieldsets for the data about  users
-#     class Meta:
-#         model = UserProfile
-
-# admin.site.register(UserProfile, UserProfileAdmin)
-
 class PaperAdmin(admin.ModelAdmin):
     list_display = ["__str__", "paper_submissionDate", "paper_avgScore", "paper_accepted"]         # Different data the Admin will be able to view
     form = PaperForm
