@@ -101,7 +101,8 @@ class MyUser(AbstractBaseUser):
 # post_save.connect(new_user_reciever, sender=MyUser)
 
 class Paper(models.Model):
-    user = models.OneToOneField(MyUser)
+    # user = models.OneToOneField(MyUser)
+    username = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     paper_submissionDate = models.DateTimeField(auto_now_add=True, auto_now=False)
     abstract = models.TextField(max_length=300)
@@ -111,7 +112,7 @@ class Paper(models.Model):
     paper_avgScore = models.CharField(max_length=2, blank=True, null=True)
     paper_accepted = models.NullBooleanField()
     def __str__(self):
-    	return '%s %s' % (self.paper_code, self.user.username)
+    	return '%s %s' % (self.paper_code)
 
 class Review(models.Model):
     review_score = (  # Provides users with a specific choice
