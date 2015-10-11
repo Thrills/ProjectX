@@ -10,6 +10,16 @@
 		<div class='col-sm-6 col-sm-offset-3' id="form">
 		<h1>Paper Reviewer</h1>
 		<h1>Please keep your review confidental, and remember to be ethical.</h1>
+		
+		{% if paper_list %}
+			<ol>
+			{% for paper in paper_list %}
+				<li><a href="{{ paper.paper_file.url }}">{{ paper.paper_file.name }}</a></li>
+			{% endfor %}
+			</ol>
+		{% else %}
+			<p>No papers.</p>
+		{% endif %}
 		<form method='POST' action=''>{% csrf_token %}
 		{{ form|crispy }}
 
