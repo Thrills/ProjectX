@@ -69,13 +69,8 @@ def paper_sub(request):
 			{'paper_list': paper_list, 'form': form},
 			context_instance=RequestContext(request)
 			)
-
-<<<<<<< HEAD
-	
-	# return render(request, 'paper_sub.html', {'form': form})
-=======
 	# return render(request, 'paper_sub.html', context)
->>>>>>> e6945102474567be5ddb7b8179a834209665692c
+
 
 
 def review_sub(request):

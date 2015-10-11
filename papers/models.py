@@ -134,11 +134,7 @@ class Review(models.Model):
     paper_code = models.ForeignKey(Paper)
     comments = models.TextField(max_length=300)
     def __str__(self):
-<<<<<<< HEAD
-    	return '%s %s' % (self.username, self.paper_code)
-
-=======
     	return '%s' % (self.paper_code)
->>>>>>> e6945102474567be5ddb7b8179a834209665692c
+
     
 
