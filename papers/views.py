@@ -4,10 +4,10 @@ from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.utils.encoding import smart_str
 
 
 from .models import Paper, Review, MyUser
-
 from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
 
@@ -32,12 +32,18 @@ def registration(request):
 		password = form.cleaned_data['password2']
 		first_name = form.cleaned_data['first_name']
 		last_name = form.cleaned_data['last_name']
+		role = form.cleaned_data['role']
+		institution = form.cleaned_data['institution']
+		country = form.cleaned_data['country']
 		new_user = MyUser()
 		new_user.username = username
 		new_user.email = email
 		new_user.set_password(password)
 		new_user.first_name = first_name
 		new_user.last_name = last_name
+		new_user.role = role
+		new_user.institution = institution
+		new_user.country = country
 		new_user.save()
 		return HttpResponseRedirect(reverse('login'))
 
@@ -53,7 +59,9 @@ def paper_sub(request):
 	if request.method == 'POST':
 		form = PaperForm(request.POST, request.FILES)
 		if form.is_valid():
-			form.save()
+			obj =form.save(commit=False)
+			obj.username = request.user
+			obj.save()
 			return HttpResponseRedirect('paper_sub')
 
 		else:
@@ -72,13 +80,14 @@ def paper_sub(request):
 	# return render(request, 'paper_sub.html', context)
 
 
-
 def review_sub(request):
 	form = ReviewForm()
 	if request.method == 'POST':
 		form = ReviewForm(request.POST or None)
 		if form.is_valid():
-			form.save()
+			obj =form.save(commit=False)
+			obj.username = request.user
+			obj.save()
 			return HttpResponseRedirect(reverse('success'))
 
 		else:
@@ -97,7 +106,7 @@ def review_sub(request):
 
 
 	# return render(request, 'review_sub.html', context)
-			
+
 
 def about(request):
 	return render(request, "about.html", {})
