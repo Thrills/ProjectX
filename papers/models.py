@@ -2,7 +2,11 @@ import datetime
 
 from django.db import models
 from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser
+
+
+
 # from django.utils import timezone
+
 
 # Our models.
 class MyUserManager(BaseUserManager):
@@ -116,6 +120,7 @@ class Paper(models.Model):
     paper_accepted = models.NullBooleanField()
     def __str__(self):
     	return '%s' % (self.paper_code)
+        
 
 class Review(models.Model):
     username = models.CharField(max_length=100)
@@ -137,5 +142,6 @@ class Review(models.Model):
     comments = models.TextField(max_length=300)
     def __str__(self):
     	return '%s %s' % (self.username, self.paper_code)
+
     
 

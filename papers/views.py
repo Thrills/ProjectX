@@ -5,6 +5,7 @@ from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
+
 from .models import Paper, Review, MyUser
 
 from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
@@ -68,6 +69,7 @@ def paper_sub(request):
 			context_instance=RequestContext(request)
 			)
 
+	
 	# return render(request, 'paper_sub.html', {'form': form})
 
 
