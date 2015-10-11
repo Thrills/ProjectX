@@ -11,14 +11,14 @@ class RegisterForm(forms.Form):
     email = forms.EmailField()
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
-    # roles = (  # Provides users with a specific choice
-    #              ('Author', 'Author'),
-    #              ('Reviewer', 'Reviewer'),
-    #              ('Commiteee Member', 'Commiteee Member'),
-    #              )
-    # role = form.CharField(max_length=20, choices=roles, blank=True)
-    # institution = form.CharField(max_length=50)
-    # country = form.CharField(max_length=50)
+    roles = (  # Provides users with a specific choice
+                 ('Author', 'Author'),
+                 ('Reviewer', 'Reviewer'),
+                 ('Commiteee Member', 'Commiteee Member'),
+                 )
+    role = forms.ChoiceField(roles)
+    institution = forms.CharField(max_length=50)
+    country = forms.CharField(max_length=50)
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -56,17 +56,17 @@ class RegisterForm(forms.Form):
         last_name = self.cleaned_data.get('last_name')
         return last_name
 
-    # def clean_role(self):
-    #     role = self.cleaned_data.get('role')
-    #     return role
+    def clean_role(self):
+        role = self.cleaned_data.get('role')
+        return role
 
-    # def clean_institution(self):
-    #     institution = self.cleaned_data.get('')
-    #     return role
+    def clean_institution(self):
+        institution = self.cleaned_data.get('institution')
+        return institution
 
-    # def clean_role(self):
-    #     role = self.cleaned_data.get('role')
-    #     return role
+    def clean_country(self):
+        country = self.cleaned_data.get('country')
+        return country
 
 #Used in admin
 class UserCreationForm(forms.ModelForm):
@@ -117,7 +117,7 @@ class UserChangeForm(forms.ModelForm):
 class PaperForm(forms.ModelForm):
     class Meta:
         model = Paper
-        fields = ['username', 'title', 'abstract', 'language', 'paper_file']
+        fields = ['title', 'abstract', 'language', 'paper_file']
 
 class PaperChangeForm(forms.ModelForm):
     """A form for updating papers. Includes all the fields on
@@ -132,7 +132,8 @@ class PaperChangeForm(forms.ModelForm):
 class ReviewForm(forms.ModelForm):
 	class Meta:
 		model = Review
-		fields = ['username', 'paper_code', 'review_score', 'comments']
+		fields = ['paper_code', 'review_score', 'comments']
+
 
 class LoginForm(forms.Form):
     username = forms.CharField(label="Username")

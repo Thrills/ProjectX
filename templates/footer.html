@@ -13,6 +13,9 @@
                     ·
                     {% if request.user.is_authenticated %}
                     <a href="{% url 'paper_sub' %}">Submission</a>
+                    
+                    {% elif request.user.is_reviewer %}
+                    <a href="{% url 'review_sub' %}">· Review</a>
                     {% else %}
                     <a href="{% url 'login' %}">Submission</a>
                     {% endif %}
@@ -50,7 +53,7 @@
 
                 <p class="footer-company-about">
                     <span>Group 1D / 1E</span>
-                    Aron Frost 17071186, Tiaan Du toit, Marco Lourenco 17127211, L
+                    Aron Frost 17071186 · Tiaan Du Toit 17038456 · Marco Lourenco 17127211 · Lujane Sieberhagen 17640776
                 </p>
 
                 <div class="footer-icons">

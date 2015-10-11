@@ -60,9 +60,9 @@ class MyUser(AbstractBaseUser):
     is_cm = models.BooleanField(default=False, verbose_name='Is a Committee Member')
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    # role = models.CharField(max_length=20)
-    # institution = models.CharField(max_length=50)
-    # country = models.CharField(max_length=50)
+    role = models.CharField(max_length=20)
+    institution = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
 
     objects = MyUserManager()
 
@@ -85,8 +85,9 @@ class MyUser(AbstractBaseUser):
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         #I THINK THIS IS WHERE WE WILL HAVE SOME IF STATEMENTS
-        # if user is reviewer:
-        #     return reviews
+        # user.has_perm('papers.add_review')
+        
+
         return True
 
     def has_module_perms(self, app_label):
@@ -135,6 +136,8 @@ class Review(models.Model):
     comments = models.TextField(max_length=300)
     def __str__(self):
     	return '%s' % (self.paper_code)
+
+
 
     
 
