@@ -68,7 +68,7 @@ def paper_sub(request):
 			context_instance=RequestContext(request)
 			)
 
-	# return render(request, 'paper_sub.html', {'form': form})
+	# return render(request, 'paper_sub.html', context)
 
 
 def review_sub(request):
@@ -88,13 +88,13 @@ def review_sub(request):
 
 	# Render list page with documents and form
 	return render_to_response(
-			'paper_sub.html',
+			'review_sub.html',
 			{'paper_list': paper_list, 'form': form},
 			context_instance=RequestContext(request)
 			)
 
 
-	return render(request, 'review_sub.html', context)
+	# return render(request, 'review_sub.html', context)
 			
 
 def about(request):

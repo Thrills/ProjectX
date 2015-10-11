@@ -16,11 +16,11 @@
 	<!-- classes are named after bootstrap defaults in order to trigger responsiveness -->
 		<!-- List of uploaded documents -->
 		{% if paper_list %}
-			<ul>
+			<ol>
 			{% for paper in paper_list %}
 				<li><a href="{{ paper.paper_file.url }}">{{ paper.paper_file.name }}</a></li>
 			{% endfor %}
-			</ul>
+			</ol>
 		{% else %}
 			<p>No papers.</p>
 		{% endif %}
