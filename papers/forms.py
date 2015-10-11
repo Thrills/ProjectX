@@ -1,15 +1,13 @@
 from django import forms
 from .models import Paper, Review, MyUser
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
-from django.contrib.auth.models import User
+#from django.contrib.auth.models import User
 
 class RegisterForm(forms.Form):
     username = forms.CharField()
     email = forms.EmailField()
     password1 = forms.CharField(label='Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Password confirmation', widget=forms.PasswordInput)
-    first_name = forms.CharField()
-    last_name = forms.CharField()
     # roles = (  # Provides users with a specific choice
     #              ('Author', 'Author'),
     #              ('Reviewer', 'Reviewer'),
@@ -46,14 +44,6 @@ class RegisterForm(forms.Form):
             return email
         except:
             raise forms.ValidationError("There was an error, please try again")
-
-    def clean_first_name(self):
-        first_name = self.cleaned_data.get('first_name')
-        return first_name
-
-    def clean_last_name(self):
-        last_name = self.cleaned_data.get('last_name')
-        return last_name
 
     # def clean_role(self):
     #     role = self.cleaned_data.get('role')

@@ -71,6 +71,7 @@ class MyUser(AbstractBaseUser):
 
     def get_short_name(self):
         # The user is identified by their email address
+
         return self.first_name
 
     def __str__(self):              # __unicode__ on Python 2
@@ -80,6 +81,8 @@ class MyUser(AbstractBaseUser):
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         #I THINK THIS IS WHERE WE WILL HAVE SOME IF STATEMENTS
+        # if user is reviewer:
+        #     return reviews
         return True
 
     def has_module_perms(self, app_label):
