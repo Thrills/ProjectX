@@ -8,14 +8,19 @@
         <h3><span>Stellenbosch</span> University</h3>
 
                 <p class="footer-links">
-                    <a href="#">Home</a>
+                    <a href="{% url 'home' %}">Home</a>
                     ·
                     <a href="{% url 'booking' %}">Booking</a>
                     ·
                     {% if request.user.is_authenticated %}
+                    <!-- This will display different links depending on whether they are signed in or not. -->
                     <a href="{% url 'paper_sub' %}">Submission</a>
                     .
                     <a href="{% url 'review_sub' %}">Review</a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8a0c9ec160669936afd69cd206c513a44f4ec9a5
                     {% else %}
                     <a href="{% url 'login' %}">Submission</a>
                     {% endif %}
@@ -66,6 +71,7 @@
                 </div>
                     <!-- Link to the help page -->
                 <p class="footer-company-about">
+                <!-- message is only displayed to users that are logged in. -->
                     <span><br>{% if request.user.is_authenticated %}Having problems, {{ request.user.username }} ?{% endif%}</span>
                     <a href="{% url 'help'%}">Read the User Help documentation here.</a>
                 </p>    

@@ -1,5 +1,6 @@
 from django.core.urlresolvers import resolve
 from django.test import TestCase
+<<<<<<< HEAD
 from django.http import HttpRequest 
 from django.template.loader import render_to_string 
 from papers.views import home, paper_sub, review_sub, registration
@@ -100,4 +101,7 @@ class RegisterPageTest(TestCase):
 
 
 # Unit tests
+=======
+from lists.views import home_pege
+>>>>>>> 8a0c9ec160669936afd69cd206c513a44f4ec9a5
 

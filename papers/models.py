@@ -12,7 +12,8 @@ from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser
 class MyUserManager(BaseUserManager):
     def create_user(self, username=None, email=None, password=None):
         """
-        Creates and saves a User with the given username, email and password.
+        Creates and saves a User with the given username, email and password. Users 
+        Must fill in their complete username and password in order for success.
         """
         if not username:
             raise ValueError('Users must include username')
@@ -52,6 +53,7 @@ class MyUser(AbstractBaseUser):
         verbose_name='email address',
         max_length=255,
         unique=True,
+        # unique ensures each email is different.
         )
     first_name = models.CharField(max_length=120)
     last_name = models.CharField(max_length=120)
@@ -60,9 +62,9 @@ class MyUser(AbstractBaseUser):
     is_cm = models.BooleanField(default=False, verbose_name='Is a Committee Member')
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
-    role = models.CharField(max_length=20)
-    institution = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
+    # role = models.CharField(max_length=20)
+    # institution = models.CharField(max_length=50)
+    # country = models.CharField(max_length=50)
 
     objects = MyUserManager()
 
@@ -85,9 +87,8 @@ class MyUser(AbstractBaseUser):
         "Does the user have a specific permission?"
         # Simplest possible answer: Yes, always
         #I THINK THIS IS WHERE WE WILL HAVE SOME IF STATEMENTS
-        # user.has_perm('papers.add_review')
-        
-
+        # if user is reviewer:
+        #     return reviews
         return True
 
     def has_module_perms(self, app_label):
@@ -118,6 +119,8 @@ class Paper(models.Model):
 
 
 class Review(models.Model):
+    class Meta:
+        permissions = ()
     username = models.ForeignKey(MyUser)
     review_score = (  # Provides users with a specific choice
                  ('1', '1'),
@@ -136,8 +139,6 @@ class Review(models.Model):
     comments = models.TextField(max_length=300)
     def __str__(self):
     	return '%s' % (self.paper_code)
-
-
 
     
 

@@ -39,13 +39,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.admindocs', # http://sourceforge.net/p/docutils/code/HEAD/tree/trunk/docutils/
     # Our apps
     'papers', 
     'booking',
     # Installed apps
-    'django.contrib.sites',
-    'crispy_forms', #http://django-crispy-forms.readthedocs.org/
-    'registration', #http://django-registration-redux.readthedocs.org/
+    'django.contrib.sites', # Displays the domain name of where the server is located.
+    'crispy_forms', # http://django-crispy-forms.readthedocs.org/
+    'registration', # http://django-registration-redux.readthedocs.org/
     'test_app'
 )
 
@@ -111,6 +112,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# User uploaded content (Papers)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
 MEDIA_URL = '/static/media/'
 
