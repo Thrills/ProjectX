@@ -12,7 +12,8 @@ from django.contrib.auth.models import User, BaseUserManager, AbstractBaseUser
 class MyUserManager(BaseUserManager):
     def create_user(self, username=None, email=None, password=None):
         """
-        Creates and saves a User with the given username, email and password.
+        Creates and saves a User with the given username, email and password. Users 
+        Must fill in their complete username and password in order for success.
         """
         if not username:
             raise ValueError('Users must include username')
@@ -52,6 +53,7 @@ class MyUser(AbstractBaseUser):
         verbose_name='email address',
         max_length=255,
         unique=True,
+        # unique ensures each email is different.
         )
     first_name = models.CharField(max_length=120)
     last_name = models.CharField(max_length=120)

@@ -15,6 +15,7 @@
                         <h1>RESEARCH CONFERENCE</h1>
                         <h3>The Stellenbosch Institute for Informatics and Software Management</h3>
                         <h3>22 - 25 February 2016</h3>
+                        <!-- displays this reminder once you log in -->
                         <h3>{% if request.user.is_authenticated %}Have you booked your ticket, {{ request.user.username }} ?{% endif%}</h3>  
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
@@ -90,6 +91,7 @@
                     <p class="lead">This conference will take place next year at the beautiful wine farm <a target="_blank" href="#">Rust en Vrede.</a> Our cover photo is a drawing by a local artist of the Stellenbosch region. Talent like this is rich in our country; join us at the conference to meet some of those individuals. This conference will take place next year at the beautiful wine farm <a target="_blank" href="#">Rust en Vrede.</a> Our cover photo is a drawing by a local artist of the Stellenbosch region. Talent like this is rich in our country; join us at the conference to meet some of those individuals. This conference will take place next year at the beautiful wine farm. Our cover photo is a drawing by a local artist of the Stellenbosch region. Talent like this is rich in our country; join us at the conference to meet some of those individuals.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <!-- responsive image changes with device -->
                     <img class="img-responsive" src="../static/img/venue.png" alt="">
                 </div>
             </div>
@@ -110,12 +112,13 @@
                     <h2>Like and share this event:</h2>
                 </div>
                 <div class="col-lg-6">
+                <!-- social media links -->
                     <ul class="list-inline banner-social-buttons">
                         <li>
                             <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                         </li>
                         <li>
-                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                            <a href="https://github.com/Thrills/ProjectX" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                         </li>
                         <li>
                             <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>

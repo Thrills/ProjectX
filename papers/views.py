@@ -15,10 +15,10 @@ from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
 def home(request):
 	title = '' # no nice welcome msg for anon users
-	#if request.user.is_authenticated():
+	# if request.user.is_authenticated():
 	#	title = "Welcome %s" %(request.user) #Displays a personalised welcome msg
 
-	#gonna add a form here apparently
+	
 	context = {
 		"title": title,
 	}
@@ -56,6 +56,7 @@ def registration(request):
 	}
 	return render(request, "registration.html", context)
 
+
 def paper_sub(request):
 	form = PaperForm()
 	if not request.user.is_authenticated():		
@@ -84,7 +85,6 @@ def paper_sub(request):
 			)
 	# return render(request, 'paper_sub.html', context)
 
-<<<<<<< HEAD
 # def download(request):
 # 	response = HttpResponse(mimetype='papers/force-download')
 # 	response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(file_name)
@@ -97,9 +97,8 @@ def paper_sub(request):
 # 	return user.is_authenticated() and user.has_perm("review_sub.can_review")
 
 # @user_passes_test('reviewer_can_review', login_url="/login/")
-=======
 
->>>>>>> 1e2cd747b7cef823c6bff3e88871ed24a117192c
+
 def review_sub(request):
 	form = ReviewForm()
 	if not request.user.is_authenticated():
@@ -135,20 +134,21 @@ def review_sub(request):
 
 	pass
 	# return render(request, 'review_sub.html', context)
-<<<<<<< HEAD
-	return render_to_response('review.html',{}, context_instance=RequestContext(request))		
-=======
 
->>>>>>> 1e2cd747b7cef823c6bff3e88871ed24a117192c
+	return render_to_response('review.html',{}, context_instance=RequestContext(request))		
+
 
 def about(request):
 	return render(request, "about.html", {})
 
+
 def userdocumentation(request):
 	return render(request, "help.html", {})
 
+
 def success(request):
 	return render(request, "success.html", {})
+
 
 def auth_login(request):
 	form = LoginForm(request.POST or None)
@@ -162,6 +162,7 @@ def auth_login(request):
 
 	context = {"form": form}
 	return render(request, 'login.html', context)
+
 
 def auth_logout(request):
 	logout(request)
