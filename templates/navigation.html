@@ -21,9 +21,6 @@
                     {% if request.user.is_authenticated %}
                     <!-- This switches the link login and logout depending on users state -->
                     <li>
-                        <a href="{% url 'home' %}" >{% if request.user.is_authenticated %}Welcome {{ request.user.username }}{% endif%}</a>    
-                    </li>
-                    <li>
                         <a href="{% url 'logout' %}">Logout</a>    
                     </li>
                     <li>

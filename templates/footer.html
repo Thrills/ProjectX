@@ -66,7 +66,7 @@
                 </div>
                     <!-- Link to the help page -->
                 <p class="footer-company-about">
-                    <span><br>Having a problem?</span>
+                    <span><br>{% if request.user.is_authenticated %}Having problems, {{ request.user.username }} ?{% endif%}</span>
                     <a href="{% url 'help'%}">Read the User Help documentation here.</a>
                 </p>    
             </div>

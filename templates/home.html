@@ -15,6 +15,7 @@
                         <h1>RESEARCH CONFERENCE</h1>
                         <h3>The Stellenbosch Institute for Informatics and Software Management</h3>
                         <h3>22 - 25 February 2016</h3>
+                        <h3>{% if request.user.is_authenticated %}Have you booked your ticket, {{ request.user.username }} ?{% endif%}</h3>  
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
