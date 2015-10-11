@@ -6,8 +6,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_str
 
+
 from .models import Paper, Review, MyUser
 from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
+
 
 def home(request):
 	title = '' # no nice welcome msg for anon users
@@ -20,7 +22,7 @@ def home(request):
 	}
 	return render(request, "home.html", context)
 
-# -----------------------needs to be commented out if you want to create a new superuser
+
 def registration(request):
 
 	form = RegisterForm(request.POST or None)
@@ -67,7 +69,6 @@ def paper_sub(request):
 			{'paper_list': paper_list, 'form': form},
 			context_instance=RequestContext(request)
 			)
-
 	# return render(request, 'paper_sub.html', context)
 
 # def download(request):
@@ -79,13 +80,14 @@ def paper_sub(request):
 # 	return response
 
 
+
 def review_sub(request):
 	form = ReviewForm()
 	if request.method == 'POST':
 		form = ReviewForm(request.POST or None)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('review_sub')
+			return HttpResponseRedirect(reverse('success'))
 
 		else:
 			form = ReviewForm()
@@ -107,6 +109,12 @@ def review_sub(request):
 
 def about(request):
 	return render(request, "about.html", {})
+
+def userdocumentation(request):
+	return render(request, "help.html", {})
+
+def success(request):
+	return render(request, "success.html", {})
 
 def auth_login(request):
 	form = LoginForm(request.POST or None)
