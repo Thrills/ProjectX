@@ -103,7 +103,7 @@ class Paper(models.Model):
     paper_submissionDate = models.DateTimeField(auto_now_add=True, auto_now=False)
     abstract = models.TextField(max_length=300)
     language = models.CharField(max_length=20)
-    paper_file = models.FileField(upload_to='paper_list/%Y/%m/%d')
+    paper_file = models.FileField(upload_to='paper_list')
     paper_code = models.AutoField(primary_key=True)
     paper_avgScore = models.CharField(max_length=2, blank=True, null=True)
     paper_accepted = models.NullBooleanField()

@@ -4,9 +4,9 @@ from django.shortcuts import get_object_or_404, render, render_to_response
 from django.template import RequestContext
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.utils.encoding import smart_str
 
 from .models import Paper, Review, MyUser
-
 from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
 def home(request):
@@ -69,6 +69,14 @@ def paper_sub(request):
 			)
 
 	# return render(request, 'paper_sub.html', context)
+
+# def download(request):
+# 	response = HttpResponse(mimetype='papers/force-download')
+# 	response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(file_name)
+# 	response['X-Sendfile'] = smart_str(path_to_file)
+# 	# It's usually a good idea to set the 'Content-Length' header too.
+# 	# You can also set any other required headers: Cache-Control, etc.
+# 	return response
 
 
 def review_sub(request):

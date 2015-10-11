@@ -7,6 +7,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
 urlpatterns = [
+    # url(r'^$', 'papers.views.download', name='download'),
     url(r'^$', 'papers.views.home', name='home'),
     url(r'^about', 'papers.views.about', name='about'),
     url(r'^login/$', 'papers.views.auth_login', name='login'),

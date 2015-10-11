@@ -1,7 +1,8 @@
 from django import forms
-from .models import Paper, Review, MyUser
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 #from django.contrib.auth.models import User
+
+from .models import Paper, Review, MyUser
 
 class RegisterForm(forms.Form):
     first_name = forms.CharField()
