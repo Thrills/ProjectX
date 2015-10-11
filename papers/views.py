@@ -9,6 +9,7 @@ from .models import Paper, Review, MyUser
 
 from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
+
 def home(request):
 	title = '' # no nice welcome msg for anon users
 	#if request.user.is_authenticated():
@@ -20,7 +21,7 @@ def home(request):
 	}
 	return render(request, "home.html", context)
 
-# -----------------------needs to be commented out if you want to create a new superuser
+
 def registration(request):
 
 	form = RegisterForm(request.POST or None)
@@ -99,6 +100,9 @@ def review_sub(request):
 
 def about(request):
 	return render(request, "about.html", {})
+
+def userdocumentation(request):
+	return render(request, "help.html", {})
 
 def auth_login(request):
 	form = LoginForm(request.POST or None)

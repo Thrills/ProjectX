@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 urlpatterns = [
     url(r'^$', 'papers.views.home', name='home'),
     url(r'^about', 'papers.views.about', name='about'),
-    url(r'^userdocumentation', 'papers.views.userdocumentation', name='userdocumentation'),
+    url(r'^help', 'papers.views.userdocumentation', name='help'),
     url(r'^login/$', 'papers.views.auth_login', name='login'),
     url(r'^logout/$', 'papers.views.auth_logout', name='logout'),
     url(r'^registration', 'papers.views.registration', name='registration'),
