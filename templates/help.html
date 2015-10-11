@@ -1,7 +1,9 @@
 {% extends "main.html" %}
-% block head_title %}Welcome | {{ block.super }}{% endblock %}
+{%block head_title %} Help | {{ block.super }}{% endblock %}
 
 {% block content %}
+<div class='row'>
+<div class='col-sm-6 col-sm-offset-3'>
 <h1>Help Document</h1>
 <h3>Frequently Asked Questions</h3>
 <ul>
@@ -94,6 +96,7 @@
 	<li>Uncertainty, representations of vagueness, many-valued and fuzzy logics</li>
 	</li>
 	</ul>
-
+</div>
+</div>
 
 {% endblock %}

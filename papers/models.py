@@ -100,16 +100,9 @@ class MyUser(AbstractBaseUser):
         # Simplest possible answer: All admins are staff
         return self.is_admin
 
-# def new_user_reciever(sender, instance, created, *args, **kwargs):
-#     if created:
-#         new_profile, is_created = UserProfile.objects.created(user=instance)
-#         print (new_profile, is_created)
-
-# post_save.connect(new_user_reciever, sender=MyUser)
 
 class Paper(models.Model):
-    # user = models.OneToOneField(MyUser)
-    username = models.CharField(max_length=100)
+    username = models.ForeignKey(MyUser)
     title = models.CharField(max_length=100)
     paper_submissionDate = models.DateTimeField(auto_now_add=True, auto_now=False)
     abstract = models.TextField(max_length=300)
@@ -122,8 +115,9 @@ class Paper(models.Model):
     	return '%s' % (self.paper_code)
         
 
+
 class Review(models.Model):
-    username = models.CharField(max_length=100)
+    username = models.ForeignKey(MyUser)
     review_score = (  # Provides users with a specific choice
                  ('1', '1'),
                  ('2', '2'),
@@ -137,11 +131,14 @@ class Review(models.Model):
                  ('10', '10'),
                  )
     review_score = models.CharField(max_length=2, choices=review_score, blank=True)
-    # user = models.OneToOneField(MyUser)
-    paper_code = models.CharField(max_length=100)
+    paper_code = models.ForeignKey(Paper)
     comments = models.TextField(max_length=300)
     def __str__(self):
+<<<<<<< HEAD
     	return '%s %s' % (self.username, self.paper_code)
 
+=======
+    	return '%s' % (self.paper_code)
+>>>>>>> e6945102474567be5ddb7b8179a834209665692c
     
 

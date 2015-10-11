@@ -10,6 +10,7 @@ from .models import Paper, Review, MyUser
 
 from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
+
 def home(request):
 	title = '' # no nice welcome msg for anon users
 	#if request.user.is_authenticated():
@@ -21,7 +22,7 @@ def home(request):
 	}
 	return render(request, "home.html", context)
 
-# -----------------------needs to be commented out if you want to create a new superuser
+
 def registration(request):
 
 	form = RegisterForm(request.POST or None)
@@ -69,8 +70,12 @@ def paper_sub(request):
 			context_instance=RequestContext(request)
 			)
 
+<<<<<<< HEAD
 	
 	# return render(request, 'paper_sub.html', {'form': form})
+=======
+	# return render(request, 'paper_sub.html', context)
+>>>>>>> e6945102474567be5ddb7b8179a834209665692c
 
 
 def review_sub(request):
@@ -90,17 +95,20 @@ def review_sub(request):
 
 	# Render list page with documents and form
 	return render_to_response(
-			'paper_sub.html',
+			'review_sub.html',
 			{'paper_list': paper_list, 'form': form},
 			context_instance=RequestContext(request)
 			)
 
 
-	return render(request, 'review_sub.html', context)
+	# return render(request, 'review_sub.html', context)
 			
 
 def about(request):
 	return render(request, "about.html", {})
+
+def userdocumentation(request):
+	return render(request, "help.html", {})
 
 def auth_login(request):
 	form = LoginForm(request.POST or None)

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .forms import PaperForm, ReviewForm, UserChangeForm, UserCreationForm
+from .forms import PaperForm, ReviewForm, UserChangeForm, UserCreationForm, PaperChangeForm
 
 from .models import Paper, Review, MyUser
 
@@ -43,15 +43,16 @@ admin.site.register(MyUser, MyUserAdmin)
 admin.site.unregister(Group)
 
 class PaperAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "paper_submissionDate", "paper_avgScore", "paper_accepted"]         # Different data the Admin will be able to view
-    form = PaperForm
+    list_display = ["__str__", "username", "paper_submissionDate", "paper_avgScore", "paper_accepted"]         # Different data the Admin will be able to view
+    form = PaperChangeForm
+    add_form = PaperForm
     #class Meta:
      #   model = Paper
 
 admin.site.register(Paper, PaperAdmin)
 
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ["__str__", "review_score"]
+    list_display = ["__str__", "username", "review_score"]
     form = ReviewForm
     #class Meta:
     #    model = Review
