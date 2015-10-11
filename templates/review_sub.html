@@ -8,9 +8,8 @@
 <!-- container fixes the footer to bottom of page -->
 	<div class='row'>
 		<div class='col-sm-6 col-sm-offset-3' id="form">
-		<h1>Paper Reviewer</h1>
+		<h1>Paper Review</h1>
 		<h1>Please keep your review confidental, and remember to be ethical.</h1>
-		
 		{% if paper_list %}
 			<ol>
 			{% for paper in paper_list %}
@@ -18,13 +17,14 @@
 			{% endfor %}
 			</ol>
 		{% else %}
-			<p>No papers.</p>
+			<p>{% if request.user.is_authenticated %}No papers, {{ request.user.username }}{% endif%}</p>
 		{% endif %}
 		<form method='POST' action=''>{% csrf_token %}
 		{{ form|crispy }}
 
 		<input  class='btn btn-block btn-primary' type='submit' value="Submit" />
 		</form>
+		<span><br>{% if request.user.is_authenticated %}Thank you, {{ request.user.username }}{% endif%}</span>
 		</div>
 	</div>
 </div>

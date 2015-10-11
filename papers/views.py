@@ -34,12 +34,18 @@ def registration(request):
 		password = form.cleaned_data['password2']
 		first_name = form.cleaned_data['first_name']
 		last_name = form.cleaned_data['last_name']
+		role = form.cleaned_data['role']
+		institution = form.cleaned_data['institution']
+		country = form.cleaned_data['country']
 		new_user = MyUser()
 		new_user.username = username
 		new_user.email = email
 		new_user.set_password(password)
 		new_user.first_name = first_name
 		new_user.last_name = last_name
+		new_user.role = role
+		new_user.institution = institution
+		new_user.country = country
 		new_user.save()
 		return HttpResponseRedirect(reverse('login'))
 
@@ -58,7 +64,9 @@ def paper_sub(request):
 	if request.method == 'POST':
 		form = PaperForm(request.POST, request.FILES)
 		if form.is_valid():
-			form.save()
+			obj =form.save(commit=False)
+			obj.username = request.user
+			obj.save()
 			return HttpResponseRedirect('paper_sub')
 
 		else:
@@ -76,6 +84,7 @@ def paper_sub(request):
 			)
 	# return render(request, 'paper_sub.html', context)
 
+<<<<<<< HEAD
 # def download(request):
 # 	response = HttpResponse(mimetype='papers/force-download')
 # 	response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(file_name)
@@ -88,6 +97,9 @@ def paper_sub(request):
 # 	return user.is_authenticated() and user.has_perm("review_sub.can_review")
 
 # @user_passes_test('reviewer_can_review', login_url="/login/")
+=======
+
+>>>>>>> 1e2cd747b7cef823c6bff3e88871ed24a117192c
 def review_sub(request):
 	form = ReviewForm()
 	if not request.user.is_authenticated():
@@ -101,7 +113,9 @@ def review_sub(request):
 	if request.method == 'POST':
 		form = ReviewForm(request.POST or None)
 		if form.is_valid():
-			form.save()
+			obj =form.save(commit=False)
+			obj.username = request.user
+			obj.save()
 			return HttpResponseRedirect(reverse('success'))
 
 		else:
@@ -121,7 +135,11 @@ def review_sub(request):
 
 	pass
 	# return render(request, 'review_sub.html', context)
+<<<<<<< HEAD
 	return render_to_response('review.html',{}, context_instance=RequestContext(request))		
+=======
+
+>>>>>>> 1e2cd747b7cef823c6bff3e88871ed24a117192c
 
 def about(request):
 	return render(request, "about.html", {})

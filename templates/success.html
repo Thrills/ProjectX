@@ -8,8 +8,13 @@
 <!-- container fixes the footer to bottom of page -->
 	<div class='row'>
 		<div class='col-sm-6 col-sm-offset-3' id="form">
-		<p class='text-align-center lead'>Thank you for your submission.</p>
+<<<<<<< HEAD
+		<p class='text-align-center lead'>{% if request.user.is_authenticated %}Thank you for your submission, {{ request.user.username }}{% endif%}</p>
 		<p class='text-align-center lead'><a href="{% url 'review_sub' %}">Make another review</a></p><p class='text-align-center lead'><a href="{% url 'home' %}">Back to Home</a></p><p class='text-align-center lead'><a href="{% url 'help' %}">Need help?</a></p>
+=======
+		<p class='text-align-center lead'>Thank you.</p>
+		<p class='text-align-center lead'><a href="{% url 'home' %}">Back to Home</a></p><p class='text-align-center lead'><a href="{% url 'help' %}">Need help?</a></p>
+>>>>>>> 20399900e9257095bab7d5056c024bd0acc2c293
 		</div>
 	</div>
 </div>

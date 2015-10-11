@@ -13,13 +13,15 @@
 	<div class='col-sm-6 col-sm-offset-3' id="form"> 
  	<h1>Paper Submission</h1>
  	<h1>Authors please make sure file is a .doc or .pdf</h1>
- 	<h5>Title format: author_title.type</h5>
 	<!-- classes are named after bootstrap defaults in order to trigger responsiveness -->
 		<!-- List of uploaded documents -->
 		{% if paper_list %}
 			<ol>
 			{% for paper in paper_list %}
-				<li><a href="{{ paper.paper_file.url }}">{{ paper.paper_file.name }}</a></li>
+				{% if request.user == paper.username %}
+					<li><a href="{{ paper.paper_file.url }}">{{ paper.paper_file.name }}</a></li>
+				{% endif %}
+				<!-- 	<li><a href="{{ paper.paper_file.url }}">{{ paper.paper_file.name }}</a></li> -->
 			{% endfor %}
 			</ol>
 		{% else %}
