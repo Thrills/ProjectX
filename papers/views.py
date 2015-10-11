@@ -47,44 +47,55 @@ def registration(request):
 	return render(request, "registration.html", context)
 
 def paper_sub(request):
+	form = PaperForm()
 	if request.method == 'POST':
 		form = PaperForm(request.POST, request.FILES)
 		if form.is_valid():
-			form.save
+			form.save()
 			return HttpResponseRedirect('paper_sub')
 
 		else:
-			form = PaperForm
+			form = PaperForm()
 		return render(request, 'paper_sub.html', {'form': form})
 
-	return render(request, 'paper_sub.html')
+	# Load document list
+	paper_list = Paper.objects.all()
 
-# def paper_upload(request):
-# 	if request.method == 'POST':
-# 		form = Paper_subForm(request.POST, request.FILES)
-# 		if form.is_valid():
-# 			new_paper = Paper(paper_file = request.FILES['paper_file'])
-# 			new_paper.save()
+	# Render list page with documents and form
+	return render_to_response(
+			'paper_sub.html',
+			{'paper_list': paper_list, 'form': form},
+			context_instance=RequestContext(request)
+			)
 
-# 			# Redirect to the document list after POST
-# 			return HttpResponseRedirect(reverse('paper_upload'))
+	# return render(request, 'paper_sub.html', {'form': form})
+
 
 def review_sub(request):
-	form = ReviewForm(request.POST or None)
-	context = {
-		# "title": title,
-		"form": form
-	}
+	form = ReviewForm()
+	if request.method == 'POST':
+		form = ReviewForm(request.POST or None)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('review_sub')
 
-	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.save()
-		#print instance.id
-		context = {
-		#"title": "Thank You"
-	}
+		else:
+			form = ReviewForm()
+		return render(request, 'review_sub.html', {'form': form})
+
+	# Load document list
+	paper_list = Paper.objects.all()
+
+	# Render list page with documents and form
+	return render_to_response(
+			'paper_sub.html',
+			{'paper_list': paper_list, 'form': form},
+			context_instance=RequestContext(request)
+			)
+
 
 	return render(request, 'review_sub.html', context)
+			
 
 def about(request):
 	return render(request, "about.html", {})

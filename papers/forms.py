@@ -108,16 +108,11 @@ class PaperForm(forms.ModelForm):
         model = Paper
         fields = ['username', 'title', 'abstract', 'language', 'paper_file']
 
-# class Paper_subForm(forms.Form):
-#     paper_file = forms.FileField(
-#         label='Select a file'
-#     )
-
 
 class ReviewForm(forms.ModelForm):
 	class Meta:
 		model = Review
-		fields = ['review_score', 'comments']
+		fields = ['username', 'paper_code', 'review_score', 'comments']
 
 class LoginForm(forms.Form):
     username = forms.CharField(label="Username")
