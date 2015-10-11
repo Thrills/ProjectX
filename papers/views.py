@@ -78,7 +78,7 @@ def review_sub(request):
 		form = ReviewForm(request.POST or None)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('review_sub')
+			return HttpResponseRedirect(reverse('success'))
 
 		else:
 			form = ReviewForm()
@@ -103,6 +103,9 @@ def about(request):
 
 def userdocumentation(request):
 	return render(request, "help.html", {})
+
+def success(request):
+	return render(request, "success.html", {})
 
 def auth_login(request):
 	form = LoginForm(request.POST or None)

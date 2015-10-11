@@ -21,7 +21,7 @@
                     ·
                     <a href="{% url 'help' %}">Faq</a>
                     ·
-                    <a href="{% url 'registration_register' %}">Register</a>
+                    <a href="{% url 'registration' %}">Register</a>
                 </p>
 
                 <p class="footer-company-name">SIISM Conference. 2015</p>
@@ -50,18 +50,22 @@
 
                 <p class="footer-company-about">
                     <span>Group 1D / 1E</span>
-                    Aron Frost 17071186, Tiaan Du toit, Marco, L
+                    Aron Frost 17071186, Tiaan Du toit, Marco Lourenco 17127211, L
                 </p>
 
                 <div class="footer-icons">
-
+                    <!-- Social media links. -->
                     <a href="#"><i class="fa fa-facebook"></i></a>
                     <a href="#"><i class="fa fa-twitter"></i></a>
                     <a href="#"><i class="fa fa-linkedin"></i></a>
                     <a href="#" id="github"><i class="fa fa-github"></i></a>
 
                 </div>
-
+                    <!-- Link to the help page -->
+                <p class="footer-company-about">
+                    <span><br>Having a problem?</span>
+                    <a href="{% url 'help'%}">Read the User Help documentation here.</a>
+                </p>    
             </div>
 
 </footer>
