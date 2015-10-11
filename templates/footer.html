@@ -14,14 +14,9 @@
                     ·
                     {% if request.user.is_authenticated %}
                     <a href="{% url 'paper_sub' %}">Submission</a>
-<<<<<<< HEAD
                     .
                     <a href="{% url 'review_sub' %}">Review</a>
-=======
-                    
-                    {% elif request.user.is_reviewer %}
-                    <a href="{% url 'review_sub' %}">· Review</a>
->>>>>>> 1e2cd747b7cef823c6bff3e88871ed24a117192c
+
                     {% else %}
                     <a href="{% url 'login' %}">Submission</a>
                     {% endif %}

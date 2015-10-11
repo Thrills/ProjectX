@@ -84,22 +84,7 @@ def paper_sub(request):
 			)
 	# return render(request, 'paper_sub.html', context)
 
-<<<<<<< HEAD
-# def download(request):
-# 	response = HttpResponse(mimetype='papers/force-download')
-# 	response['Content-Disposition'] = 'attachment; filename=%s' % smart_str(file_name)
-# 	response['X-Sendfile'] = smart_str(path_to_file)
-# 	# It's usually a good idea to set the 'Content-Length' header too.
-# 	# You can also set any other required headers: Cache-Control, etc.
-# 	return response
 
-# def can_review(reviewer):
-# 	return user.is_authenticated() and user.has_perm("review_sub.can_review")
-
-# @user_passes_test('reviewer_can_review', login_url="/login/")
-=======
-
->>>>>>> 1e2cd747b7cef823c6bff3e88871ed24a117192c
 def review_sub(request):
 	form = ReviewForm()
 	if not request.user.is_authenticated():
@@ -135,11 +120,8 @@ def review_sub(request):
 
 	pass
 	# return render(request, 'review_sub.html', context)
-<<<<<<< HEAD
-	return render_to_response('review.html',{}, context_instance=RequestContext(request))		
-=======
 
->>>>>>> 1e2cd747b7cef823c6bff3e88871ed24a117192c
+
 
 def about(request):
 	return render(request, "about.html", {})
