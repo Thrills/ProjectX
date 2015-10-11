@@ -13,6 +13,8 @@
                     ·
                     {% if request.user.is_authenticated %}
                     <a href="{% url 'paper_sub' %}">Submission</a>
+                    .
+                    <a href="{% url 'review_sub' %}">Review</a>
                     {% else %}
                     <a href="{% url 'login' %}">Submission</a>
                     {% endif %}

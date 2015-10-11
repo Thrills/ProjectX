@@ -6,6 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_str
 
+from django.contrib.auth.decorators import user_passes_test
+
 
 from .models import Paper, Review, MyUser
 from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
@@ -50,6 +52,9 @@ def registration(request):
 
 def paper_sub(request):
 	form = PaperForm()
+	if not request.user.is_authenticated():		
+		#user is not authenticated (not logged in)
+		return HttpResponseRedirect(reverse('login'))   
 	if request.method == 'POST':
 		form = PaperForm(request.POST, request.FILES)
 		if form.is_valid():
@@ -79,10 +84,20 @@ def paper_sub(request):
 # 	# You can also set any other required headers: Cache-Control, etc.
 # 	return response
 
+# def can_review(reviewer):
+# 	return user.is_authenticated() and user.has_perm("review_sub.can_review")
 
-
+# @user_passes_test('reviewer_can_review', login_url="/login/")
 def review_sub(request):
 	form = ReviewForm()
+	if not request.user.is_authenticated():
+		return HttpResponseRedirect(reverse('login'))
+	# review_permission = MyUser.objects.get(is_reviewer=request.user)
+	# for reviewer in review_permission:
+	# 	if request.user == reviewer.is_reviewer:
+	# 		return HttpResponseRedirect(reverse('review_sub'))
+	# 	else:
+	# 		return HttpResponseRedirect(reverse('login'))
 	if request.method == 'POST':
 		form = ReviewForm(request.POST or None)
 		if form.is_valid():
@@ -96,6 +111,7 @@ def review_sub(request):
 	# Load document list
 	paper_list = Paper.objects.all()
 
+	
 	# Render list page with documents and form
 	return render_to_response(
 			'review_sub.html',
@@ -103,9 +119,9 @@ def review_sub(request):
 			context_instance=RequestContext(request)
 			)
 
-
+	pass
 	# return render(request, 'review_sub.html', context)
-			
+	return render_to_response('review.html',{}, context_instance=RequestContext(request))		
 
 def about(request):
 	return render(request, "about.html", {})
@@ -139,4 +155,7 @@ def index(request):
     paper_list = Paper.objects.order_by('-Paper_SubmissionDate')[:5] # Need to adjust this !
     context = {'paper_list': paper_list}
     return render(request, 'papers/index.html', context)
+
+viewset_base_methods = ['update', 'create', 'delete', 'view']
+
 
