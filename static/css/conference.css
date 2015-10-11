@@ -5,6 +5,7 @@
 			 -- Javascript may be blocked on some rga pcs */
 
 
+/*Positions the text in the middle of the page. Used for most of the headers.*/
 .text-align-center {
 	text-align: center;
 }
@@ -15,6 +16,7 @@ html, body {
 	height:100%;
 }
 
+/*Stretches the entire page, ensure responsive stick*/
 .container {
 	min-height:100%;
 	position:relative;
@@ -31,6 +33,7 @@ html, body {
 	padding: 1em 1.5em !important;
 }
 
+/*Color and background changes when visitor moves mouse over link*/
 .intro-message li a:hover {
 	color: #9A202B;
 	background-color: #fff;
@@ -61,6 +64,7 @@ html, body {
 	padding-top: 150px;
 }
 
+/*overrides bootstrap setting*/
 .col-sm-offset-3 {
 	padding-top: 150px;
 }

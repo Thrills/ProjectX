@@ -15,10 +15,10 @@ from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
 def home(request):
 	title = '' # no nice welcome msg for anon users
-	#if request.user.is_authenticated():
+	# if request.user.is_authenticated():
 	#	title = "Welcome %s" %(request.user) #Displays a personalised welcome msg
 
-	#gonna add a form here apparently
+	
 	context = {
 		"title": title,
 	}
@@ -55,6 +55,7 @@ def registration(request):
 		"submit_btn_value": "Register"
 	}
 	return render(request, "registration.html", context)
+
 
 def paper_sub(request):
 	form = PaperForm()
@@ -122,15 +123,17 @@ def review_sub(request):
 	# return render(request, 'review_sub.html', context)
 
 
-
 def about(request):
 	return render(request, "about.html", {})
+
 
 def userdocumentation(request):
 	return render(request, "help.html", {})
 
+
 def success(request):
 	return render(request, "success.html", {})
+
 
 def auth_login(request):
 	form = LoginForm(request.POST or None)
@@ -144,6 +147,7 @@ def auth_login(request):
 
 	context = {"form": form}
 	return render(request, 'login.html', context)
+
 
 def auth_logout(request):
 	logout(request)

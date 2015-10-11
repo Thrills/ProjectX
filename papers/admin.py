@@ -7,6 +7,8 @@ from .models import Paper, Review, MyUser
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+# Read only means we do not display the password
+
 
 class MyUserAdmin(UserAdmin):
     # The forms to add and change user instances
@@ -42,19 +44,21 @@ admin.site.register(MyUser, MyUserAdmin)
 # unregister the Group model from admin.
 admin.site.unregister(Group)
 
+
 class PaperAdmin(admin.ModelAdmin):
     list_display = ["__str__", "username", "paper_submissionDate", "paper_avgScore", "paper_accepted"]         # Different data the Admin will be able to view
     form = PaperChangeForm
     add_form = PaperForm
-    #class Meta:
+    # class Meta:
      #   model = Paper
 
 admin.site.register(Paper, PaperAdmin)
 
+
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ["__str__", "username", "review_score"]
     form = ReviewForm
-    #class Meta:
+    # class Meta:
     #    model = Review
 
 admin.site.register(Review, ReviewAdmin)

@@ -19,6 +19,7 @@ def booking(request):
             return HttpResponseRedirect(reverse('success'))
         # Takes the delegate to a new page once complete.
         else:
+        # Else if incorrect the form is redisplayed
             form = ReviewForm()
         return render(request, 'booking.html', {'form': form})
 
