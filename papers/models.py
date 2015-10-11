@@ -112,9 +112,10 @@ class Paper(models.Model):
     paper_avgScore = models.CharField(max_length=2, blank=True, null=True)
     paper_accepted = models.NullBooleanField()
     def __str__(self):
-    	return '%s %s' % (self.paper_code)
+    	return '%s' % (self.paper_code)
 
 class Review(models.Model):
+    username = models.CharField(max_length=100)
     review_score = (  # Provides users with a specific choice
                  ('1', '1'),
                  ('2', '2'),
@@ -128,10 +129,10 @@ class Review(models.Model):
                  ('10', '10'),
                  )
     review_score = models.CharField(max_length=2, choices=review_score, blank=True)
-    user = models.OneToOneField(MyUser)
-    paper_code = models.ForeignKey('Paper')
+    # user = models.OneToOneField(MyUser)
+    paper_code = models.CharField(max_length=100)
     comments = models.TextField(max_length=300)
     def __str__(self):
-    	return '%s' % (self.paper_code)
+    	return '%s %s' % (self.username, self.paper_code)
     
 
