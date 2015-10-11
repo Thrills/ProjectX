@@ -23,16 +23,17 @@ html, body {
 /*HOMEPAGE booking link*/
 
 .booking {
+	font-size: x-large;
 	color: #fff;
+	background-color: #9A202B;
 	border: 2px solid #fff;
-	letter-spacing: 2px;
+	letter-spacing: 3px;
 	padding: 1em 1.5em !important;
-	border-radius: 300px;
 }
 
 .intro-message li a:hover {
-	color: black;
-	background-color: white;
+	color: #9A202B;
+	background-color: #fff;
 	text-decoration: none;
 }
 
@@ -47,10 +48,13 @@ html, body {
     border: 0;
 }
 
-
 .navbar-default .navbar-nav>li>a {
     color: #991F2A;
-    padding-top: 10px;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	color: white;
+	background-color: #991F2A;
 }
 
 #form {

@@ -12,15 +12,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand topnav" href="{% url 'home' %}"><img src="{% static 'img/icon.png' %}" alt="Conference 2016"></a>
+                <a class="navbar-brand topnav" href="{% url 'home' %}"><img src="{% static 'img/icon.png' %}" id="image_full"><img src="{% static 'img/iconsmall.png' %}" id="image_mobile"></a>
 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="{% url 'about' %}">About</a>
-                    </li>
                     {% if request.user.is_authenticated %}
                     <!-- This switches the link login and logout depending on users state -->
                     <li>
@@ -37,6 +34,12 @@
                         <a href="{% url 'registration' %}">Register</a>  
                     </li>
                     {% endif %}
+                    <li>
+                        <a href="{% url 'booking' %}">Book Now</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}">About</a>
+                    </li>
                     <li>
                         <a href="#contact">Contact Us</a>
                     </li>

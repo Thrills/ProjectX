@@ -50,22 +50,24 @@ def paper_sub(request):
 	if request.method == 'POST':
 		form = PaperForm(request.POST, request.FILES)
 		if form.is_valid():
-			new_paper = Paper(paper_file = request.FILES['paper_file'])
-			new_paper.save
+			form.save
+			return HttpResponseRedirect('paper_sub')
 
-			# Redirect to the document list after POST
-			return HttpResponseRedirect(reverse('paper_sub'))
+		else:
+			form = PaperForm
+		return render(request, 'paper_sub.html', {'form': form})
 
-	else:
-		form = PaperForm() #empty unbound form
-		# Load documents for the list page
-		paper_list = Paper.objects.all()
-		# Render list page with the documents and the form
-		return render_to_response(
-			'paper_sub.html',
-			{'paper_list': paper_list, 'form': form},
-			context_instance=RequestContext(request)
-			)
+	return render(request, 'paper_sub.html')
+
+# def paper_upload(request):
+# 	if request.method == 'POST':
+# 		form = Paper_subForm(request.POST, request.FILES)
+# 		if form.is_valid():
+# 			new_paper = Paper(paper_file = request.FILES['paper_file'])
+# 			new_paper.save()
+
+# 			# Redirect to the document list after POST
+# 			return HttpResponseRedirect(reverse('paper_upload'))
 
 def review_sub(request):
 	form = ReviewForm(request.POST or None)

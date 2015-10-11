@@ -102,13 +102,17 @@ class UserChangeForm(forms.ModelForm):
         # field does not have access to the initial value
         return self.initial["password"]
 
+
 class PaperForm(forms.ModelForm):
-	class Meta:
-		model = Paper
-		fields = ['title', 'abstract', 'language','paper_file'] # 'paper_avgScore', 'paper_accepted']
-		# paper_file = forms.FileField(
-  #       	label='Select a file'
-  #   	 )
+    class Meta:
+        model = Paper
+        fields = ['username', 'title', 'abstract', 'language', 'paper_file']
+
+# class Paper_subForm(forms.Form):
+#     paper_file = forms.FileField(
+#         label='Select a file'
+#     )
+
 
 class ReviewForm(forms.ModelForm):
 	class Meta:

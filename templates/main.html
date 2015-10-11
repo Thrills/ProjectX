@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Conference">
     <meta name="author" content="17071186, ">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="icon" href="{% static 'img/favicon.png' %}"> 
 
     <title>{% block head_title %}SIISM Conference 2016{% endblock %}</title>
 
@@ -20,11 +20,12 @@
 
   <body>
     {% include 'navigation.html' %}
+    <!-- adds our navigation to this base html page -->
             
 
           
             {% block content %}
-
+    <!-- Content loads here -->
             {% endblock %}
               
 
