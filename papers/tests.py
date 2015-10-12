@@ -9,6 +9,7 @@ from booking.models import Delegate
 
 class DelegateModelTest(TestCase):
 
+<<<<<<< HEAD
 	def test_saving_and_retrieving_items(self):
 		first_delegate.id = Delegate(1)
 		first_delegate.delegate_name = Delegate(aron)
@@ -37,4 +38,32 @@ class DelegateModelTest(TestCase):
 
 
 
+=======
+class HomePageTest(TestCase):
+	# Test that url directs to the home page
+	def test_root_url_resolves_to_home_page_view(self):
+		found = resolve('/')
+		self.assertEqual(found.func, home)
+
+	# Test that page returns defined html page
+	def test_home_page_returns_correct_html(self):
+		request = HttpRequest()
+		response = home(request)
+		expected_html = render_to_string('home.html')
+		self.assertEqual(response.content.decode(), expected_html)
+
+
+class RegisterPageTest(TestCase):
+	
+	def test_root_url_resolves_to_register_page_view(self):
+		found = resolve('/registration/')
+		self.assertEqual(found.func, registration)
+
+
+class ReviewPageTest(TestCase):
+	
+	def test_root_url_resolves_to_review_page_view(self):
+		found = resolve('/review_sub/')
+		self.assertEqual(found.func, review_sub)
+>>>>>>> 479beb1e9665d0568a26dce512e92b3e812d5539
 

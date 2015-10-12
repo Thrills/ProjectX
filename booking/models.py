@@ -26,8 +26,4 @@ class Delegate(models.Model):  # The database for delegates who have made a book
         return '%s' % (self.id)
 
 
-# class Ticket(models.Model):
-#     id = models.ForeignKey(Delegate)
 
-#     def __str__(self):
-#         return self.id

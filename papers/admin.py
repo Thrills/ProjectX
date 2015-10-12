@@ -49,18 +49,14 @@ class PaperAdmin(admin.ModelAdmin):
     list_display = ["__str__", "username", "paper_submissionDate", "paper_avgScore", "paper_accepted"]         # Different data the Admin will be able to view
     form = PaperChangeForm
     add_form = PaperForm
-    # class Meta:
-     #   model = Paper
-
+    
 admin.site.register(Paper, PaperAdmin)
 
 
 class ReviewAdmin(admin.ModelAdmin):
     list_display = ["__str__", "username", "review_score"]
     form = ReviewForm
-    # class Meta:
-    #    model = Review
-
+    
 admin.site.register(Review, ReviewAdmin)
 
 
