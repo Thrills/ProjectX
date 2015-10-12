@@ -90,12 +90,7 @@ def review_sub(request):
 	form = ReviewForm()
 	if not request.user.is_authenticated():
 		return HttpResponseRedirect(reverse('login'))
-	# review_permission = MyUser.objects.get(is_reviewer=request.user)
-	# for reviewer in review_permission:
-	# 	if request.user == reviewer.is_reviewer:
-	# 		return HttpResponseRedirect(reverse('review_sub'))
-	# 	else:
-	# 		return HttpResponseRedirect(reverse('login'))
+	
 	if request.method == 'POST':
 		form = ReviewForm(request.POST or None)
 		if form.is_valid():
