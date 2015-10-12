@@ -17,12 +17,8 @@ urlpatterns = [
     url(r'^review_sub/', 'papers.views.review_sub', name='review_sub'),
     url(r'^paper_sub', 'papers.views.paper_sub', name='paper_sub'),
     url(r'^booking', 'booking.views.booking', name='booking'),
-<<<<<<< HEAD
-=======
-    #url(r'^papers/', include('papers.urls', namespace="papers")),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-    # This the url link to the documentation for admin.
->>>>>>> 8a0c9ec160669936afd69cd206c513a44f4ec9a5
+    # This the url link to the documentation for admin
     url(r'^admin/', include(admin.site.urls)),
     url(r'^accounts/', include('registration.backends.default.urls')), 
     url(r'^accounts/profile/', TemplateView.as_view(template_name='profile.html'), name='profile')

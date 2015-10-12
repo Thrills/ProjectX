@@ -4,7 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import unittest
 
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(unittest.TestCase):
 	def setUp(self):
 		self.browser = webdriver.Firefox()
 		self.browser.implicitly_wait(3)
@@ -14,42 +14,54 @@ class NewVisitorTest(LiveServerTestCase):
 
 	def test_homepage(self):
 	# Check if homepage is working
-		self.browser.get('self.live_server_url') #p79
+		self.browser.get('http://localhost:8000')
 
-		self.assertIn('Welcome', self.browser.title)
-
-		header_text = self.browser.find_element_by_tag_name('h1').header_text
+		header_text = self.browser.find_element_by_tag_name('h1').text
 		self.assertIn('RESEARCH CONFERENCE', header_text)
 
-		header_text = self.browser.find_element_by_tag_name('h3').header_text
+		header_text = self.browser.find_element_by_tag_name('h3').text
 		self.assertIn('The Stellenbosch Institute for Informatics and Software Management', header_text)
 
+	def test_about(self):
+	# Check if about page is working
+		self.browser.get('http://localhost:8000/about') 
+
+		header_text = self.browser.find_element_by_tag_name('h1').text
+		self.assertIn('About Us', header_text)
+
+	def test_helppage(self):
+	# Check if help page is working
+		self.browser.get('http://localhost:8000/help')
+
+		header_text = self.browser.find_element_by_tag_name('h1').text
+		self.assertIn('Help Document', header_text)
+
+		header_text = self.browser.find_element_by_tag_name('h3').text
+		self.assertIn('Frequently Asked Questions', header_text)
+
+	def test_footer(self):
+	# Check if footer is working
+		self.browser.get('http://localhost:8000') 
+
+		header_text = self.browser.find_element_by_tag_name('h3').text
+		self.assertIn('Stellenbosch', header_text)
+
+	def test_login(self):
+	# Check if log in is working
+		self.browser.get('http://localhost:8000/login')
+
+		header_text = self.browser.find_element_by_tag_name('h1').text
+		self.assertIn('Login', header_text)
+
+	def test_main(self):
+	# Check if main.html is working
+		self.browser.get('http://localhost:8000') 
+
+		self.assertIn('SIISM Conference 2016', self.browser.title)
+
 	def test_registration(self):
+	# Check if registration is working
+		self.browser.get('http://localhost:8000/registration') 
 
-		inputbox = self.browser.find_element_by_tag_id('')
-		self.assertEqual(
-				inputbox.get_attribute('placeholder'),
-				'Enter a to-do item'
-		)
-
-		inputbox.send_keys('')
-
-		inputbox.send_keys(Keys.ENTER)
-
-		
-		table = self.browser.find_element_by_id('id_list_table')
-		rows = table.find_element_by_tag_name('tr')
-		self.assertTrue(
-				any(row.text == '1: Buy some' for row in rows)
-		)
-
-
-
-
-		self.fail('Finish the test!')
-
-
-
-
-
-
+		header_text = self.browser.find_element_by_tag_name('h1').text
+		self.assertIn('Create a Profile', header_text)	

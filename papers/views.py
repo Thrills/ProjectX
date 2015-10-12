@@ -14,9 +14,7 @@ from .forms import PaperForm, ReviewForm, RegisterForm, LoginForm
 
 
 def home(request):
-	title = '' # no nice welcome msg for anon users
-	# if request.user.is_authenticated():
-	#	title = "Welcome %s" %(request.user) #Displays a personalised welcome msg
+	title = '' 
 
 	
 	context = {
@@ -25,8 +23,8 @@ def home(request):
 	return render(request, "home.html", context)
 
 
+# Custom form for our custom user model
 def registration(request):
-
 	form = RegisterForm(request.POST or None)
 	if form.is_valid():
 		username = form.cleaned_data['username']
@@ -57,6 +55,7 @@ def registration(request):
 	return render(request, "registration.html", context)
 
 
+# Paper form that saves to database and displays list of all submitted papers
 def paper_sub(request):
 	form = PaperForm()
 	if not request.user.is_authenticated():		
@@ -85,17 +84,12 @@ def paper_sub(request):
 			)
 	# return render(request, 'paper_sub.html', context)
 
-
+# Limits this view to reviewers only
+@user_passes_test(lambda u: u.is_reviewer)
 def review_sub(request):
 	form = ReviewForm()
 	if not request.user.is_authenticated():
 		return HttpResponseRedirect(reverse('login'))
-	# review_permission = MyUser.objects.get(is_reviewer=request.user)
-	# for reviewer in review_permission:
-	# 	if request.user == reviewer.is_reviewer:
-	# 		return HttpResponseRedirect(reverse('review_sub'))
-	# 	else:
-	# 		return HttpResponseRedirect(reverse('login'))
 	if request.method == 'POST':
 		form = ReviewForm(request.POST or None)
 		if form.is_valid():
